@@ -4,14 +4,14 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
 <title>픽로그 | PICKLOG — 직장인 사이다 툰 &amp; 실생활 꿀템</title>
-<meta name="description" content="직장인 사이다 툰 & 실생활 꿀템 큐레이션 ✨ 픽로그가 직접 골라 써본 쿠팡 꿀템을 한 페이지에 모았어요." />
+<meta name="description" content="직장인 사이다 툰 & 실생활 꿀템 큐레이션 ✨ 영상 속 상품번호(P001·P002·P003)나 상품명으로 바로 검색해 보세요." />
 <meta name="theme-color" content="#12131A" />
 <meta name="robots" content="index,follow" />
 
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="픽로그 | PICKLOG" />
 <meta property="og:title" content="픽로그 | PICKLOG — 직장인 사이다 툰 &amp; 실생활 꿀템" />
-<meta property="og:description" content="직장인 사이다 툰 & 실생활 꿀템 큐레이션 ✨ 픽로그가 직접 골라 써본 쿠팡 꿀템을 한 페이지에 모았어요." />
+<meta property="og:description" content="직장인 사이다 툰 & 실생활 꿀템 큐레이션 ✨ 영상 속 상품번호(P001·P002·P003)나 상품명으로 바로 검색해 보세요." />
 <meta property="og:image" content="profile.png" />
 <meta name="twitter:card" content="summary_large_image" />
 
@@ -19,6 +19,22 @@
 <link rel="apple-touch-icon" href="apple-touch-icon.png" />
 <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css" />
+
+<script>
+/* ══════════════════════════════════════════════════════════════════
+   PICKLOG 상품 링크 설정  (여기 한 줄만 바꾸면 됩니다)
+   ──────────────────────────────────────────────────────────────────
+   쿠팡 파트너스에서 상품별 단축 링크를 만든 뒤, 아래 따옴표 안의
+   주소만 교체하세요. 키(P001·P002·P003)는 영상에 나오는 상품번호와
+   같습니다. 예) P003: 'https://link.coupang.com/a/abc123'
+   아직 바꾸지 않은 상품을 누르면 안내 토스트가 뜹니다.
+   ══════════════════════════════════════════════════════════════════ */
+var PICKLOG_LINKS = {
+  P001: 'https://link.coupang.com/a/REPLACE_P001', // 클래파 DC모터 다용도 미니 핸디형 무선청소기 BVC-H10
+  P002: 'https://link.coupang.com/a/REPLACE_P002', // 타공 없는 자석 부착 USB-C 모션 센서 무드등
+  P003: 'https://link.coupang.com/a/REPLACE_P003'  // 신지모루 O PD 65W GaN 3포트 초고속 접지 충전기
+};
+</script>
 
 <style>
   :root{
@@ -256,6 +272,122 @@
   }
   .tab:focus-visible{outline:2px solid var(--coral);outline-offset:2px;}
 
+  /* ── 검색 ───────────────────────────────────── */
+  .search{margin:0 0 12px;}
+  .search-field{
+    display:flex;
+    align-items:center;
+    gap:9px;
+    height:50px;
+    padding:0 12px 0 13px;
+    border-radius:15px;
+    background:rgba(255,255,255,.055);
+    border:1px solid var(--line-strong);
+    transition:border-color .18s ease,background .18s ease,box-shadow .18s ease;
+  }
+  .search-field:focus-within{
+    background:rgba(255,255,255,.085);
+    border-color:rgba(255,77,109,.62);
+    box-shadow:0 0 0 3px rgba(255,77,109,.15);
+  }
+  .search-field .ico{
+    width:17px;height:17px;flex:none;
+    fill:none;stroke:var(--muted);stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round;
+    transition:stroke .18s ease;
+  }
+  .search-field:focus-within .ico{stroke:var(--coral);}
+  .search-field input{
+    flex:1 1 auto;
+    min-width:0;
+    height:100%;
+    padding:0;
+    appearance:none;
+    -webkit-appearance:none;
+    background:transparent;
+    border:0;
+    outline:none;
+    color:var(--text);
+    font-family:inherit;
+    font-size:14.5px;
+    font-weight:600;
+    letter-spacing:-0.02em;
+  }
+  .search-field input::placeholder{color:var(--muted-2);font-weight:500;letter-spacing:-0.02em;}
+  .search-field input::-webkit-search-cancel-button,
+  .search-field input::-webkit-search-decoration{-webkit-appearance:none;display:none;}
+  .search-field .clear{
+    flex:none;
+    width:22px;height:22px;
+    display:inline-flex;align-items:center;justify-content:center;
+    padding:0;
+    border:0;border-radius:50%;
+    background:rgba(255,255,255,.15);
+    color:#E9EBF3;
+    font-family:inherit;font-size:13px;font-weight:800;line-height:1;
+    cursor:pointer;
+    -webkit-tap-highlight-color:transparent;
+  }
+  .search-field .clear[hidden]{display:none;}
+  .quick{display:flex;flex-wrap:wrap;gap:5px;margin-top:9px;}
+  .quick button{
+    appearance:none;
+    font-family:inherit;
+    font-size:11.5px;
+    font-weight:700;
+    letter-spacing:-0.01em;
+    padding:5px 9px;
+    border-radius:8px;
+    color:#C6CBD9;
+    background:rgba(255,255,255,.05);
+    border:1px solid var(--line);
+    cursor:pointer;
+    -webkit-tap-highlight-color:transparent;
+    transition:background .15s ease,border-color .15s ease,color .15s ease;
+  }
+  .quick button:hover,.quick button:focus-visible{background:rgba(255,255,255,.1);border-color:var(--line-strong);color:#fff;}
+  .quick button.num{color:#FFB3C1;background:rgba(255,77,109,.1);border-color:rgba(255,77,109,.3);letter-spacing:.03em;}
+
+  .results{
+    margin:0 0 10px;
+    padding:0 2px;
+    font-size:11.5px;
+    font-weight:600;
+    letter-spacing:-0.01em;
+    color:var(--muted-2);
+  }
+  .results strong{color:#E9EBF3;font-weight:800;}
+
+  .empty{
+    display:none;
+    text-align:center;
+    padding:32px 20px 28px;
+    border-radius:var(--radius);
+    border:1px dashed rgba(255,255,255,.15);
+    background:rgba(255,255,255,.03);
+  }
+  .empty.show{display:block;}
+  .empty .em{display:block;font-size:28px;line-height:1;margin-bottom:10px;}
+  .empty p{margin:0;font-size:12.5px;line-height:1.65;color:var(--muted);word-break:keep-all;}
+  .empty p b{color:#fff;font-weight:800;}
+  .empty button{
+    margin-top:14px;
+    appearance:none;
+    font-family:inherit;
+    font-size:12.5px;font-weight:700;letter-spacing:-0.01em;
+    padding:9px 16px;
+    border-radius:11px;
+    color:#fff;
+    background:rgba(255,255,255,.08);
+    border:1px solid var(--line-strong);
+    cursor:pointer;
+  }
+
+  .sr-only{
+    position:absolute;width:1px;height:1px;
+    padding:0;margin:-1px;overflow:hidden;
+    clip:rect(0 0 0 0);white-space:nowrap;border:0;
+  }
+
   /* ── 상품 카드 ───────────────────────────────── */
   .cards{display:grid;gap:14px;}
 
@@ -330,28 +462,59 @@
     z-index:1;
     line-height:1;
   }
-  .thumb .badge{
+  .thumb .pnum{
     position:absolute;
     left:12px;top:12px;
-    z-index:2;
+    z-index:3;
     display:inline-flex;
     align-items:center;
-    gap:4px;
-    padding:5px 9px;
+    padding:4px 9px;
+    border-radius:8px;
+    background:linear-gradient(135deg,var(--coral),#FF6A5B);
+    color:#fff;
+    font-size:12px;
+    font-weight:900;
+    letter-spacing:.05em;
+    font-variant-numeric:tabular-nums;
+    box-shadow:0 10px 20px -12px rgba(255,77,109,.95);
+  }
+  .thumb .state{
+    position:absolute;
+    right:12px;top:12px;
+    z-index:3;
+    display:inline-flex;
+    align-items:center;
+    gap:3px;
+    padding:4px 8px;
     border-radius:8px;
     background:rgba(10,11,16,.62);
     backdrop-filter:blur(6px);
     -webkit-backdrop-filter:blur(6px);
     border:1px solid rgba(255,255,255,.16);
     font-size:11px;
-    font-weight:700;
+    font-weight:800;
     letter-spacing:-0.01em;
     color:#fff;
   }
-  .thumb .badge .dot{
-    width:5px;height:5px;border-radius:50%;
-    background:var(--yellow);
-    box-shadow:0 0 8px var(--yellow);
+  .thumb .state.hot{
+    color:#FFD9DF;
+    background:rgba(255,77,109,.22);
+    border-color:rgba(255,77,109,.46);
+  }
+  .thumb .state.new{
+    color:#C7F6E3;
+    background:rgba(40,196,140,.2);
+    border-color:rgba(60,220,165,.42);
+  }
+  .thumb .rev{
+    position:absolute;
+    left:12px;bottom:11px;
+    z-index:3;
+    font-size:11px;
+    font-weight:700;
+    letter-spacing:-0.01em;
+    color:rgba(255,255,255,.85);
+    text-shadow:0 2px 8px rgba(0,0,0,.65);
   }
 
   .thumb.c-living{background:linear-gradient(135deg,#2A1A24,#3B1C2A 55%,#1C1220);}
@@ -604,21 +767,42 @@
     <span class="stamp">정보 확인 2026.11.27</span>
   </div>
 
+  <div class="search">
+    <label class="sr-only" for="q">상품번호 또는 상품명 검색</label>
+    <div class="search-field">
+      <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.6-3.6"/></svg>
+      <input id="q" type="search" inputmode="search" enterkeyhint="search" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="상품번호(P001) 또는 상품명 검색" aria-describedby="results" />
+      <button type="button" class="clear" id="qClear" aria-label="검색어 지우기" hidden>✕</button>
+    </div>
+    <div class="quick" role="group" aria-label="빠른 검색">
+      <button type="button" class="num" data-q="P001">P001</button>
+      <button type="button" class="num" data-q="P002">P002</button>
+      <button type="button" class="num" data-q="P003">P003</button>
+      <button type="button" data-q="청소기">청소기</button>
+      <button type="button" data-q="무드등">무드등</button>
+      <button type="button" data-q="충전기">충전기</button>
+    </div>
+  </div>
+
   <div class="tabs" role="tablist" aria-label="상품 카테고리">
     <button class="tab" role="tab" id="tab-all" aria-selected="true" aria-controls="cards" data-filter="all">전체</button>
     <button class="tab" role="tab" id="tab-living" aria-selected="false" aria-controls="cards" data-filter="living">리빙·생활</button>
     <button class="tab" role="tab" id="tab-tech" aria-selected="false" aria-controls="cards" data-filter="tech">테크·데스크</button>
   </div>
 
+  <p class="results" id="results" aria-live="polite">전체 <strong>3</strong>개 상품</p>
+
   <div class="cards" id="cards">
 
     <!-- ① 클래파 미니 무선청소기 -->
-    <article class="card" data-cat="living" data-item="item1">
-      <a class="card-link" href="#" data-link="item1">
+    <article class="card" data-cat="living" data-num="P001" data-keywords="클래파 청소기 핸디청소기 미니청소기 무선청소기 bvc bvc-h10 가성비">
+      <a class="card-link" href="#" data-link="P001">
         <div class="thumb c-living">
-          <span class="badge"><span class="dot"></span>리뷰 2.8만+</span>
+          <span class="pnum">P001</span>
+          <span class="state hot" aria-label="인기 상품">🔥 인기</span>
           <span class="halo" aria-hidden="true"></span>
           <span class="glyph" aria-hidden="true">🧹</span>
+          <span class="rev">리뷰 28,615</span>
           <span class="idx" aria-hidden="true">01</span>
         </div>
         <div class="body">
@@ -642,10 +826,11 @@
     </article>
 
     <!-- ② 자석 부착 모션 센서 무드등 -->
-    <article class="card" data-cat="living" data-item="item2">
-      <a class="card-link" href="#" data-link="item2">
+    <article class="card" data-cat="living" data-num="P002" data-keywords="무드등 센서등 모션센서 자석부착 usb-c 충전식 현관등 인테리어">
+      <a class="card-link" href="#" data-link="P002">
         <div class="thumb c-living2">
-          <span class="badge"><span class="dot"></span>1만 원대</span>
+          <span class="pnum">P002</span>
+          <span class="state new" aria-label="새로 추가된 상품">✨ NEW</span>
           <span class="halo" aria-hidden="true"></span>
           <span class="glyph" aria-hidden="true">💡</span>
           <span class="idx" aria-hidden="true">02</span>
@@ -668,25 +853,30 @@
       </a>
     </article>
 
-    <!-- ③ 65W GaN 3포트 멀티 충전기 -->
-    <article class="card" data-cat="tech" data-item="item3">
-      <a class="card-link" href="#" data-link="item3">
+    <!-- ③ 신지모루 65W GaN 3포트 접지 충전기 -->
+    <article class="card" data-cat="tech" data-num="P003" data-keywords="신지모루 gan 나이트 나이트충전기 충전기 고속충전기 멀티충전기 c타입 usb usb-c pd 접지 3포트 노트북충전기">
+      <a class="card-link" href="#" data-link="P003">
         <div class="thumb c-tech">
-          <span class="badge"><span class="dot"></span>2만 원대</span>
+          <span class="pnum">P003</span>
+          <span class="state hot" aria-label="인기 상품">🔥 인기</span>
           <span class="halo" aria-hidden="true"></span>
           <span class="glyph" aria-hidden="true">🔌</span>
+          <span class="rev">리뷰 10,286</span>
           <span class="idx" aria-hidden="true">03</span>
         </div>
         <div class="body">
           <div class="chips">
             <span class="chip accent">테크·데스크</span>
             <span class="chip">65W · 3포트</span>
+            <span class="chip gold">접지형</span>
           </div>
-          <h3>초미니 65W GaN 3포트 고속 멀티 충전기</h3>
-          <p class="desc">노트북+폰 동시 초고속 충전 · 손바닥만 한 크기로 출장·카페 책상 위 필수템</p>
+          <h3>신지모루 O PD 65W GaN 3포트 초고속 접지 충전기</h3>
+          <p class="desc">노트북·폰·이어폰 동시 충전 · C타입 2 + A타입 1, 손바닥만 한 크기로 출장·카페 책상 위 필수템</p>
           <div class="price-row">
-            <span class="price-now">2만 원대</span>
-            <span class="price-note">쿠팡에서 실시간 가격 확인</span>
+            <span class="price-now">22,900<em>원</em></span>
+            <span class="price-was">54,900원</span>
+            <span class="price-off">58%</span>
+            <span class="price-note">로켓배송</span>
           </div>
           <div class="cta">쿠팡에서 확인하기
             <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg>
@@ -695,6 +885,12 @@
       </a>
     </article>
 
+  </div>
+
+  <div class="empty" id="empty">
+    <span class="em" aria-hidden="true">🔍</span>
+    <p><b id="emptyQ"></b>에 맞는 상품을 못 찾았어요.<br>상품번호(<span class="nw">P001~P003</span>)나 상품명 일부로 다시 검색해 보세요.</p>
+    <button type="button" id="resetBtn">전체 상품 보기</button>
   </div>
 
   <div class="notice">
@@ -729,24 +925,12 @@
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
 <script>
-/* ══════════════════════════════════════════════════════════════
-   PICKLOG 상품 링크 설정
-   ──────────────────────────────────────────────────────────────
-   쿠팡 파트너스에서 상품 링크(단축 URL)를 만든 뒤
-   아래 'REPLACE_ITEM_x' 부분만 실제 주소로 바꿔 주세요.
-   예) item1: 'https://link.coupang.com/a/abc123'
-   아직 바꾸지 않은 상품을 누르면 404 대신 안내 토스트가 뜹니다.
-   ══════════════════════════════════════════════════════════════ */
-const PICKLOG_LINKS = {
-  item1: 'https://link.coupang.com/a/REPLACE_ITEM_1', // 클래파 미니 핸디형 무선청소기 BVC-H10
-  item2: 'https://link.coupang.com/a/REPLACE_ITEM_2', // 타공 없는 자석 부착 USB-C 모션 센서 무드등
-  item3: 'https://link.coupang.com/a/REPLACE_ITEM_3'  // 초미니 65W GaN 3포트 고속 멀티 충전기
-};
-
-const TOAST_MSG = '상품 링크 준비 중이에요! 곧 업데이트됩니다 🙏';
-const PLACEHOLDER = /REPLACE_ITEM_\d/;
-
 (function () {
+  'use strict';
+
+  const TOAST_MSG = '상품 링크 준비 중이에요! 곧 업데이트됩니다 🙏';
+  const PLACEHOLDER = /REPLACE/i;
+
   const toast = document.getElementById('toast');
   let toastTimer = null;
 
@@ -754,10 +938,10 @@ const PLACEHOLDER = /REPLACE_ITEM_\d/;
     toast.textContent = msg;
     toast.classList.add('show');
     clearTimeout(toastTimer);
-    toastTimer = setTimeout(() => toast.classList.remove('show'), 2600);
+    toastTimer = setTimeout(function () { toast.classList.remove('show'); }, 2600);
   }
 
-  /* 상품 링크 연결 */
+  /* ① 상품 링크 연결 (PICKLOG_LINKS 는 <head> 맨 위에 있습니다) */
   document.querySelectorAll('[data-link]').forEach(function (a) {
     const key = a.getAttribute('data-link');
     const url = (PICKLOG_LINKS[key] || '').trim();
@@ -779,24 +963,142 @@ const PLACEHOLDER = /REPLACE_ITEM_\d/;
     }
   });
 
-  /* 카테고리 탭 */
-  const tabs = document.querySelectorAll('.tab');
-  const cards = document.querySelectorAll('.card');
+  /* ② 상품번호·상품명 즉시 검색 + 카테고리 탭 */
+  const input = document.getElementById('q');
+  const clearBtn = document.getElementById('qClear');
+  const results = document.getElementById('results');
+  const emptyBox = document.getElementById('empty');
+  const emptyQ = document.getElementById('emptyQ');
+  const tabs = Array.prototype.slice.call(document.querySelectorAll('.tab'));
+  const cards = Array.prototype.slice.call(document.querySelectorAll('.card'));
+
+  // 비교용 정규화: 소문자 + 공백·기호 제거 ("USB-C" → "usbc", "P 003" → "p003")
+  function norm(s) {
+    return String(s || '').toLowerCase().replace(/[\s\-_.,·/()]+/g, '');
+  }
+  function esc(s) {
+    return String(s).replace(/[&<>"']/g, function (c) {
+      return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c];
+    });
+  }
+
+  cards.forEach(function (card) {
+    card._hay = norm(card.textContent + ' ' + (card.getAttribute('data-keywords') || ''));
+  });
+
+  let activeCat = 'all';
+
+  // 'p1' · 'P001' · '001' · '1' → 'P001'
+  function asNumber(q) {
+    const m = norm(q).match(/^p?0*(\d{1,3})$/);
+    if (!m) return null;
+    return 'P' + String(parseInt(m[1], 10)).padStart(3, '0');
+  }
+
+  function syncTabs() {
+    tabs.forEach(function (t) {
+      t.setAttribute('aria-selected', String(t.getAttribute('data-filter') === activeCat));
+    });
+  }
+
+  function shownCards() {
+    return cards.filter(function (c) { return !c.classList.contains('is-hidden'); });
+  }
+
+  function apply() {
+    const raw = input.value.trim();
+    const q = norm(raw);
+    const num = q ? asNumber(raw) : null;
+    let shown = 0;
+
+    // 검색 중에는 카테고리 필터를 잠시 풀고 전체에서 찾기
+    if (q && activeCat !== 'all') {
+      activeCat = 'all';
+      syncTabs();
+    }
+
+    cards.forEach(function (card) {
+      let match;
+      if (q) {
+        match = card.getAttribute('data-num') === num ||
+                card._hay.indexOf(q) !== -1 ||
+                (num !== null && card._hay.indexOf(norm(num)) !== -1);
+      } else {
+        match = activeCat === 'all' || card.getAttribute('data-cat') === activeCat;
+      }
+      card.classList.toggle('is-hidden', !match);
+      if (match) shown += 1;
+    });
+
+    if (q) {
+      results.innerHTML = shown
+        ? '<strong>' + shown + '</strong>개 찾았어요 · “' + esc(raw) + '”'
+        : '“' + esc(raw) + '” 검색 결과가 없어요';
+    } else {
+      results.innerHTML = (activeCat === 'all' ? '전체 ' : '') + '<strong>' + shown + '</strong>개 상품';
+    }
+
+    emptyBox.classList.toggle('show', shown === 0);
+    emptyQ.textContent = raw ? '“' + raw + '”' : '이 카테고리';
+    clearBtn.hidden = input.value.length === 0;
+  }
+
+  input.addEventListener('input', apply);
+  input.addEventListener('search', apply);
+
+  input.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape') {
+      input.value = '';
+      apply();
+    }
+    if (e.key === 'Enter') {
+      e.preventDefault();
+      const first = shownCards()[0];
+      if (first) first.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      input.blur();
+    }
+  });
+
+  clearBtn.addEventListener('click', function () {
+    input.value = '';
+    apply();
+    input.focus();
+  });
+
+  document.getElementById('resetBtn').addEventListener('click', function () {
+    input.value = '';
+    apply();
+  });
 
   tabs.forEach(function (tab) {
     tab.addEventListener('click', function () {
-      const filter = tab.getAttribute('data-filter');
-
-      tabs.forEach(function (t) {
-        t.setAttribute('aria-selected', String(t === tab));
-      });
-
-      cards.forEach(function (card) {
-        const match = filter === 'all' || card.getAttribute('data-cat') === filter;
-        card.classList.toggle('is-hidden', !match);
-      });
+      activeCat = tab.getAttribute('data-filter');
+      input.value = '';   // 탭을 고르면 검색은 해제
+      syncTabs();
+      apply();
     });
   });
+
+  document.querySelectorAll('.quick button').forEach(function (b) {
+    b.addEventListener('click', function () {
+      input.value = b.getAttribute('data-q');
+      apply();
+      const first = shownCards()[0];
+      if (first) first.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    });
+  });
+
+  /* ③ 진입 시 ?q=P003 또는 #P003 로 바로 검색 (영상·프로필 링크용) */
+  const seed = new URLSearchParams(location.search).get('q') ||
+               (location.hash ? decodeURIComponent(location.hash.slice(1)) : '');
+  if (seed) {
+    input.value = seed;
+    apply();
+    const first = shownCards()[0];
+    if (first) setTimeout(function () { first.scrollIntoView({ behavior: 'smooth', block: 'center' }); }, 150);
+  } else {
+    apply();
+  }
 })();
 </script>
 </body>

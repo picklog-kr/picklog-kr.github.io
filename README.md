@@ -6,5 +6,9 @@
 - `profile.png` — 프로필 이미지
 - `apple-touch-icon.png` — 홈 화면 추가용 아이콘
 
-상품 링크를 바꾸려면 `index.html` 맨 아래 `<script>` 안의 `PICKLOG_LINKS` 값을
-쿠팡 파트너스 단축 주소로 바꾸면 됩니다.
+상품 링크를 바꾸려면 `index.html` **맨 위**(`<head>` 안)의 `PICKLOG_LINKS` 값을
+쿠팡 파트너스 단축 주소로 바꾸면 됩니다. 키(`P001`·`P002`·`P003`)는 영상에 나오는
+상품번호와 같습니다.
+
+새 상품을 추가할 때는 카드 하나를 복사해 `data-num`(상품번호), `data-cat`(카테고리),
+`data-keywords`(검색어)와 `data-link`(링크 키)를 맞춰 주세요. 검색·탭·배지는 자동으로 붙습니다.
