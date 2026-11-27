@@ -4,14 +4,14 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
 <title>민지로그 | MINJI LOG — 민지가 알려주는 실생활 꿀템 ✨</title>
-<meta name="description" content="민지가 알려주는 실생활 꿀템 ✨ 영상 속 상품번호(P001~P004)나 상품명으로 바로 검색해 보세요." />
+<meta name="description" content="민지가 알려주는 실생활 꿀템 ✨ 영상 속 상품번호(P001~P005)나 상품명으로 바로 검색해 보세요." />
 <meta name="theme-color" content="#12131A" />
 <meta name="robots" content="index,follow" />
 
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="민지로그 | MINJI LOG" />
 <meta property="og:title" content="민지로그 | MINJI LOG — 민지가 알려주는 실생활 꿀템 ✨" />
-<meta property="og:description" content="민지가 알려주는 실생활 꿀템 ✨ 영상 속 상품번호(P001~P004)나 상품명으로 바로 검색해 보세요." />
+<meta property="og:description" content="민지가 알려주는 실생활 꿀템 ✨ 영상 속 상품번호(P001~P005)나 상품명으로 바로 검색해 보세요." />
 <meta property="og:image" content="profile.png" />
 <meta name="twitter:card" content="summary_large_image" />
 
@@ -25,7 +25,7 @@
    민지로그(MINJI LOG) 상품 링크 설정  (여기 한 줄만 바꾸면 됩니다)
    ──────────────────────────────────────────────────────────────────
    쿠팡 파트너스에서 상품별 단축 링크를 만든 뒤, 아래 따옴표 안의
-   주소만 교체하세요. 키(P001·P002·P003)는 영상에 나오는 상품번호와
+   주소만 교체하세요. 키(P001~P005)는 영상에 나오는 상품번호와
    같습니다. 예) P003: 'https://link.coupang.com/a/abc123'
    아직 바꾸지 않은 상품을 누르면 안내 토스트가 뜹니다.
    ══════════════════════════════════════════════════════════════════ */
@@ -33,7 +33,8 @@ var PICKLOG_LINKS = {
   P001: 'https://link.coupang.com/a/iZ5LYo1hDM', // 클래파 DC모터 다용도 미니 핸디형 무선청소기 BVC-H10
   P002: 'https://link.coupang.com/a/iZ5V5HxwHY', // 투데이리빙 360도 무선 센서등 무타공 모션 동작 감지 조명 R99495Y
   P003: 'https://link.coupang.com/a/iZ5TG8V856', // 신지모루 O PD 65W GaN 3포트 초고속 접지 충전기
-  P004: 'https://link.coupang.com/a/i0zqGVV2DQ'  // 르메이어 비접촉 자동 센서 거품 디스펜서 LMEA-SD01
+  P004: 'https://link.coupang.com/a/i0zqGVV2DQ', // 르메이어 비접촉 자동 센서 거품 디스펜서 LMEA-SD01
+  P005: 'https://link.coupang.com/a/i0QYBNMIiO'  // 홈플래닛 미니 무선가습기 400ml HF501S
 };
 </script>
 
@@ -522,6 +523,7 @@ var PICKLOG_LINKS = {
   .thumb.c-living2{background:linear-gradient(135deg,#2B1B1B,#43221C 55%,#1D1319);}
   .thumb.c-tech{background:linear-gradient(135deg,#131E33,#1B2C4A 55%,#111A2B);}
   .thumb.c-bath{background:linear-gradient(135deg,#1D2A2B,#20404A 55%,#131B22);}
+  .thumb.c-mist{background:linear-gradient(135deg,#17222F,#1F3B5C 55%,#121A28);}
 
   .nw{white-space:nowrap;}
 
@@ -781,6 +783,8 @@ var PICKLOG_LINKS = {
       <button type="button" class="num" data-q="P002">P002</button>
       <button type="button" class="num" data-q="P003">P003</button>
       <button type="button" class="num" data-q="P004">P004</button>
+      <button type="button" class="num" data-q="P005">P005</button>
+      <button type="button" data-q="가습기">가습기</button>
       <button type="button" data-q="청소기">청소기</button>
       <button type="button" data-q="무드등">무드등</button>
       <button type="button" data-q="충전기">충전기</button>
@@ -793,7 +797,7 @@ var PICKLOG_LINKS = {
     <button class="tab" role="tab" id="tab-tech" aria-selected="false" aria-controls="cards" data-filter="tech">테크·데스크</button>
   </div>
 
-  <p class="results" id="results" aria-live="polite">전체 <strong>4</strong>개 상품</p>
+  <p class="results" id="results" aria-live="polite">전체 <strong>5</strong>개 상품</p>
 
   <div class="cards" id="cards">
 
@@ -920,11 +924,43 @@ var PICKLOG_LINKS = {
       </a>
     </article>
 
+    <!-- ⑤ 홈플래닛 미니 무선가습기 400ml -->
+    <article class="card" data-cat="living" data-num="P005" data-keywords="가습기 무선가습기 미니가습기 초음파가습기 홈플래닛 usb가습기 사무실가습기 침실가습기 겨울가습기 400ml hf501s">
+      <a class="card-link" href="#" data-link="P005">
+        <div class="thumb c-mist">
+          <span class="pnum">P005</span>
+          <span class="state new" aria-label="새로 추가된 상품">✨ NEW</span>
+          <span class="halo" aria-hidden="true"></span>
+          <span class="glyph" aria-hidden="true">💧</span>
+          <span class="rev">리뷰 2,592</span>
+          <span class="idx" aria-hidden="true">05</span>
+        </div>
+        <div class="body">
+          <div class="chips">
+            <span class="chip accent">리빙·생활</span>
+            <span class="chip">400ml · 무선</span>
+            <span class="chip gold">로켓배송</span>
+          </div>
+          <h3>홈플래닛 미니 무선가습기 400ml <span class="nw">HF501S</span></h3>
+          <p class="desc">겨울 난방으로 마른 방, 콘센트 없이 책상·침대 옆에 두는 무선 가습기 · 한 번 충전에 최대 4.5시간</p>
+          <div class="price-row">
+            <span class="price-now">13,990<em>원</em></span>
+            <span class="price-was">34,990원</span>
+            <span class="price-off">60%</span>
+            <span class="price-note">무료배송</span>
+          </div>
+          <div class="cta">쿠팡에서 확인하기
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg>
+          </div>
+        </div>
+      </a>
+    </article>
+
   </div>
 
   <div class="empty" id="empty">
     <span class="em" aria-hidden="true">🔍</span>
-    <p><b id="emptyQ"></b>에 맞는 상품을 못 찾았어요.<br>상품번호(<span class="nw">P001~P004</span>)나 상품명 일부로 다시 검색해 보세요.</p>
+    <p><b id="emptyQ"></b>에 맞는 상품을 못 찾았어요.<br>상품번호(<span class="nw">P001~P005</span>)나 상품명 일부로 다시 검색해 보세요.</p>
     <button type="button" id="resetBtn">전체 상품 보기</button>
   </div>
 
