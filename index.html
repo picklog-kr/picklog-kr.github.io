@@ -4,14 +4,14 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
 <title>민지로그 | MINJI LOG — 영상 속 모든 제품 정보 👇</title>
-<meta name="description" content="민지로그 영상 속 모든 제품 정보 👇 상품번호(P001~P008)나 상품명으로 검색해 쿠팡에서 바로 확인하세요." />
+<meta name="description" content="민지로그 영상 속 모든 제품 정보 👇 궁금한 제품명을 검색해 쿠팡에서 바로 확인하세요." />
 <meta name="theme-color" content="#F6EEDB" />
 <meta name="robots" content="index,follow" />
 
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="민지로그 | MINJI LOG" />
 <meta property="og:title" content="민지로그 | MINJI LOG — 영상 속 모든 제품 정보 👇" />
-<meta property="og:description" content="상품번호(P001~P008)나 상품명으로 검색해 쿠팡에서 바로 확인하세요." />
+<meta property="og:description" content="궁금한 제품명을 검색해 쿠팡에서 바로 확인하세요." />
 <meta property="og:image" content="profile.png" />
 <meta name="twitter:card" content="summary_large_image" />
 
@@ -279,7 +279,6 @@ var PICKLOG_LINKS = {
     transition:background .15s ease,border-color .15s ease,color .15s ease;
   }
   .quick button:hover,.quick button:focus-visible{background:#fff;border-color:rgba(198,176,133,.75);color:var(--ink);}
-  .quick button.num{color:#B4562C;background:rgba(255,255,255,.8);border-color:rgba(226,97,47,.28);letter-spacing:.03em;}
 
   /* ── 탭 ─────────────────────────────────────── */
   .tabs{
@@ -369,11 +368,20 @@ var PICKLOG_LINKS = {
     background:radial-gradient(120% 100% at 30% 12%,rgba(255,255,255,.75),transparent 62%);
     z-index:1;
   }
-  .thumb .glyph{
-    font-size:36px;
-    line-height:1;
-    filter:drop-shadow(0 6px 10px rgba(120,95,50,.22));
+  .thumb img{
+    position:relative;
     z-index:2;
+    display:block;
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    border-radius:12px;
+  }
+  .thumb.has-photo::after{
+    background:linear-gradient(180deg,rgba(255,255,255,.08) 0%,rgba(120,95,50,.04) 55%,rgba(120,95,50,.13) 100%);
+    box-shadow:inset 0 0 0 1px rgba(120,95,50,.07);
+    z-index:3;
+    pointer-events:none;
   }
   .thumb.t-living{background:linear-gradient(140deg,#FFE9D7,#FFD8BF);}
   .thumb.t-living2{background:linear-gradient(140deg,#FFE7DA,#FFD2C0);}
@@ -396,18 +404,6 @@ var PICKLOG_LINKS = {
     gap:6px;
     margin-bottom:1px;
     min-width:0;
-  }
-  .pnum{
-    flex:none;
-    padding:1px 6px;
-    border-radius:6px;
-    background:#2B2721;
-    color:#FFF8E7;
-    font-size:10.5px;
-    font-weight:800;
-    letter-spacing:.04em;
-    font-variant-numeric:tabular-nums;
-    line-height:1.5;
   }
   .badge{
     flex:none;
@@ -620,7 +616,7 @@ var PICKLOG_LINKS = {
   </header>
 
   <section class="search-block">
-    <label class="sr-only" for="q">상품번호 또는 상품명 검색</label>
+    <label class="sr-only" for="q">제품명 검색</label>
     <div class="search-field">
       <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.6-3.6"/></svg>
       <input id="q" type="search" inputmode="search" enterkeyhint="search" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="검색어를 입력해주세요." aria-describedby="results" />
@@ -630,18 +626,13 @@ var PICKLOG_LINKS = {
     <p class="guide">👆 검색창에 제품을 적어 검색해서 찾아요</p>
 
     <div class="quick" role="group" aria-label="빠른 검색">
-      <button type="button" class="num" data-q="P001">P001</button>
-      <button type="button" class="num" data-q="P002">P002</button>
-      <button type="button" class="num" data-q="P003">P003</button>
-      <button type="button" class="num" data-q="P004">P004</button>
-      <button type="button" class="num" data-q="P005">P005</button>
-      <button type="button" class="num" data-q="P006">P006</button>
-      <button type="button" class="num" data-q="P007">P007</button>
-      <button type="button" class="num" data-q="P008">P008</button>
       <button type="button" data-q="가습기">가습기</button>
       <button type="button" data-q="청소기">청소기</button>
       <button type="button" data-q="무드등">무드등</button>
       <button type="button" data-q="충전기">충전기</button>
+      <button type="button" data-q="에어프라이어">에어프라이어</button>
+      <button type="button" data-q="히터">히터</button>
+      <button type="button" data-q="마사지건">마사지건</button>
     </div>
   </section>
 
@@ -658,10 +649,9 @@ var PICKLOG_LINKS = {
 
     <!-- ① 클래파 미니 무선청소기 -->
     <a class="card" href="#" data-link="P001" data-cat="living" data-num="P001" data-keywords="클래파 청소기 핸디청소기 미니청소기 무선청소기 bvc bvc-h10 가성비">
-      <span class="thumb t-living" aria-hidden="true"><span class="glyph">🧹</span></span>
+      <span class="thumb t-living has-photo" aria-hidden="true"><img src="thumbs/p001.jpg" alt="" width="84" height="84" decoding="async"></span>
       <span class="info">
         <span class="meta">
-          <span class="pnum">P001</span>
           <span class="badge hot">🔥 인기</span>
           <span class="rev">리뷰 28,615</span>
         </span>
@@ -673,10 +663,9 @@ var PICKLOG_LINKS = {
 
     <!-- ② 자석 부착 모션 센서 무드등 -->
     <a class="card" href="#" data-link="P002" data-cat="living" data-num="P002" data-keywords="무드등 센서등 모션센서 자석부착 usb-c 충전식 현관등 인테리어">
-      <span class="thumb t-living2" aria-hidden="true"><span class="glyph">💡</span></span>
+      <span class="thumb t-living2 has-photo" aria-hidden="true"><img src="thumbs/p002.jpg" alt="" width="84" height="84" decoding="async"></span>
       <span class="info">
         <span class="meta">
-          <span class="pnum">P002</span>
           <span class="badge new">✨ NEW</span>
         </span>
         <h3>타공 없는 자석 부착 USB-C 모션 센서 무드등</h3>
@@ -687,10 +676,9 @@ var PICKLOG_LINKS = {
 
     <!-- ③ 신지모루 65W GaN 3포트 접지 충전기 -->
     <a class="card" href="#" data-link="P003" data-cat="tech" data-num="P003" data-keywords="신지모루 gan 나이트 나이트충전기 충전기 고속충전기 멀티충전기 c타입 usb usb-c pd 접지 3포트 노트북충전기">
-      <span class="thumb t-tech" aria-hidden="true"><span class="glyph">🔌</span></span>
+      <span class="thumb t-tech has-photo" aria-hidden="true"><img src="thumbs/p003.jpg" alt="" width="84" height="84" decoding="async"></span>
       <span class="info">
         <span class="meta">
-          <span class="pnum">P003</span>
           <span class="badge hot">🔥 인기</span>
           <span class="rev">리뷰 10,286</span>
         </span>
@@ -702,10 +690,9 @@ var PICKLOG_LINKS = {
 
     <!-- ④ 르메이어 비접촉 자동 센서 거품 디스펜서 -->
     <a class="card" href="#" data-link="P004" data-cat="living" data-num="P004" data-keywords="르메이어 비접촉 자동 센서 디스펜서 거품 비누 핸드워시 손세정기 주방 욕실 무타공 벽걸이 lmea lmea-sd01">
-      <span class="thumb t-bath" aria-hidden="true"><span class="glyph">🧼</span></span>
+      <span class="thumb t-bath has-photo" aria-hidden="true"><img src="thumbs/p004.jpg" alt="" width="84" height="84" decoding="async"></span>
       <span class="info">
         <span class="meta">
-          <span class="pnum">P004</span>
           <span class="badge new">✨ NEW</span>
           <span class="rev">리뷰 1,385</span>
         </span>
@@ -717,10 +704,9 @@ var PICKLOG_LINKS = {
 
     <!-- ⑤ 홈플래닛 미니 무선가습기 400ml -->
     <a class="card" href="#" data-link="P005" data-cat="living" data-num="P005" data-keywords="가습기 무선가습기 미니가습기 초음파가습기 홈플래닛 usb가습기 사무실가습기 침실가습기 겨울가습기 400ml hf501s">
-      <span class="thumb t-mist" aria-hidden="true"><span class="glyph">💧</span></span>
+      <span class="thumb t-mist has-photo" aria-hidden="true"><img src="thumbs/p005.jpg" alt="" width="84" height="84" decoding="async"></span>
       <span class="info">
         <span class="meta">
-          <span class="pnum">P005</span>
           <span class="badge new">✨ NEW</span>
           <span class="rev">리뷰 2,592</span>
         </span>
@@ -732,10 +718,9 @@ var PICKLOG_LINKS = {
 
     <!-- ⑥ 쿠쿠 에어프라이어 5.5L -->
     <a class="card" href="#" data-link="P006" data-cat="kitchen" data-num="P006" data-keywords="에어프라이어 대용량에어프라이어 쿠쿠 쿠쿠에어프라이어 5.5리터 caf-g0610tb 튀김기 주방가전 겨울야식">
-      <span class="thumb t-kitchen" aria-hidden="true"><span class="glyph">🍟</span></span>
+      <span class="thumb t-kitchen has-photo" aria-hidden="true"><img src="thumbs/p006.jpg" alt="" width="84" height="84" decoding="async"></span>
       <span class="info">
         <span class="meta">
-          <span class="pnum">P006</span>
           <span class="badge new">✨ NEW</span>
           <span class="rev">리뷰 2,649</span>
         </span>
@@ -747,10 +732,9 @@ var PICKLOG_LINKS = {
 
     <!-- ⑦ 프롬비 히터팬 전기 온풍기 -->
     <a class="card" href="#" data-link="P007" data-cat="living" data-num="P007" data-keywords="온풍기 히터팬 전기온풍기 프롬비 프롬비온풍기 fc189r 사무실온풍기 발난로 소형온풍기 겨울가전">
-      <span class="thumb t-living2" aria-hidden="true"><span class="glyph">🔥</span></span>
+      <span class="thumb t-living2 has-photo" aria-hidden="true"><img src="thumbs/p007.jpg" alt="" width="84" height="84" decoding="async"></span>
       <span class="info">
         <span class="meta">
-          <span class="pnum">P007</span>
           <span class="badge new">✨ NEW</span>
           <span class="rev">리뷰 2,953</span>
         </span>
@@ -762,10 +746,9 @@ var PICKLOG_LINKS = {
 
     <!-- ⑧ 필립스 초경량 4종 헤드 마사지건 -->
     <a class="card" href="#" data-link="P008" data-cat="tech" data-num="P008" data-keywords="마사지건 안마기 필립스 필립스마사지건 ppm7317 무선마사지건 어깨마사지기 승모근 헬스 소파안마기">
-      <span class="thumb t-tech" aria-hidden="true"><span class="glyph">💪</span></span>
+      <span class="thumb t-tech has-photo" aria-hidden="true"><img src="thumbs/p008.jpg" alt="" width="84" height="84" decoding="async"></span>
       <span class="info">
         <span class="meta">
-          <span class="pnum">P008</span>
           <span class="badge new">✨ NEW</span>
           <span class="rev">리뷰 216</span>
         </span>
@@ -779,7 +762,7 @@ var PICKLOG_LINKS = {
 
   <div class="empty" id="empty">
     <span class="em" aria-hidden="true">🔍</span>
-    <p><b id="emptyQ"></b>에 맞는 상품을 못 찾았어요.<br>상품번호(<span class="nw">P001~P008</span>)나 상품명 일부로 다시 검색해 보세요.</p>
+    <p><b id="emptyQ"></b>에 맞는 상품을 못 찾았어요.<br>제품명 일부만 적어서 다시 검색해 보세요.</p>
     <button type="button" id="resetBtn">전체 상품 보기</button>
   </div>
 
@@ -852,7 +835,7 @@ var PICKLOG_LINKS = {
     }
   });
 
-  /* ② 상품번호·상품명 즉시 검색 + 카테고리 탭 */
+  /* ② 제품명 즉시 검색 + 카테고리 탭 */
   const input = document.getElementById('q');
   const clearBtn = document.getElementById('qClear');
   const results = document.getElementById('results');
@@ -894,28 +877,33 @@ var PICKLOG_LINKS = {
     return cards.filter(function (c) { return !c.classList.contains('is-hidden'); });
   }
 
+  //기존 배포 링크(?q=P006 등)용 내부 필터. 화면에는 상품번호를 보여주지 않습니다.
+  let pinnedNum = null;
+
   function apply() {
     const raw = input.value.trim();
     const q = norm(raw);
     const num = q ? asNumber(raw) : null;
+    const pin = pinnedNum;
     let shown = 0;
 
     // 검색 중에는 카테고리 필터를 잠시 풀고 전체에서 찾기
-    if (q && activeCat !== 'all') {
+    if ((q || pin) && activeCat !== 'all') {
       activeCat = 'all';
       syncTabs();
     }
 
     cards.forEach(function (card) {
       let match;
-      if (q) {
+      if (pin) {
+        match = card.getAttribute('data-num') === pin;
+      } else if (q) {
         if (num !== null && /^p?\d+$/.test(q)) {
           // 상품번호만 입력했을 때는 그 상품 하나만 ("6" → P006)
           match = card.getAttribute('data-num') === num;
         } else {
           match = card.getAttribute('data-num') === num ||
-                  card._hay.indexOf(q) !== -1 ||
-                  (num !== null && card._hay.indexOf(norm(num)) !== -1);
+                  card._hay.indexOf(q) !== -1;
         }
       } else {
         match = activeCat === 'all' || card.getAttribute('data-cat') === activeCat;
@@ -924,25 +912,30 @@ var PICKLOG_LINKS = {
       if (match) shown += 1;
     });
 
-    if (q) {
+    if (pin) {
+      results.innerHTML = '<strong>' + shown + '</strong>개 상품';
+    } else if (q) {
       results.innerHTML = shown
-        ? '<strong>' + shown + '</strong>개 찾았어요 · “' + esc(raw) + '”'
+        ? (num !== null && /^p?\d+$/.test(q)
+            ? '<strong>' + shown + '</strong>개 상품'
+            : '<strong>' + shown + '</strong>개 찾았어요 · “' + esc(raw) + '”')
         : '“' + esc(raw) + '” 검색 결과가 없어요';
     } else {
       results.innerHTML = (activeCat === 'all' ? '전체 ' : '') + '<strong>' + shown + '</strong>개 상품';
     }
 
     emptyBox.classList.toggle('show', shown === 0);
-    emptyQ.textContent = raw ? '“' + raw + '”' : '이 카테고리';
+    emptyQ.textContent = raw ? '“' + raw + '”' : (pin ? '요청하신 상품' : '이 카테고리');
     clearBtn.hidden = input.value.length === 0;
   }
 
-  input.addEventListener('input', apply);
-  input.addEventListener('search', apply);
+  input.addEventListener('input', function () { pinnedNum = null; apply(); });
+  input.addEventListener('search', function () { pinnedNum = null; apply(); });
 
   input.addEventListener('keydown', function (e) {
     if (e.key === 'Escape') {
       input.value = '';
+      pinnedNum = null;
       apply();
     }
     if (e.key === 'Enter') {
@@ -955,12 +948,14 @@ var PICKLOG_LINKS = {
 
   clearBtn.addEventListener('click', function () {
     input.value = '';
+    pinnedNum = null;
     apply();
     input.focus();
   });
 
   document.getElementById('resetBtn').addEventListener('click', function () {
     input.value = '';
+    pinnedNum = null;
     apply();
   });
 
@@ -968,6 +963,7 @@ var PICKLOG_LINKS = {
     tab.addEventListener('click', function () {
       activeCat = tab.getAttribute('data-filter');
       input.value = '';   // 탭을 고르면 검색은 해제
+      pinnedNum = null;
       syncTabs();
       apply();
     });
@@ -975,6 +971,7 @@ var PICKLOG_LINKS = {
 
   document.querySelectorAll('.quick button').forEach(function (b) {
     b.addEventListener('click', function () {
+      pinnedNum = null;
       input.value = b.getAttribute('data-q');
       apply();
       const first = shownCards()[0];
@@ -982,11 +979,17 @@ var PICKLOG_LINKS = {
     });
   });
 
-  /* ③ 진입 시 ?q=P003 또는 #P003 로 바로 검색 (영상·프로필 링크용) */
+  /* ③ 진입 시 ?q=가습기 ?q=P003 #P003 로 바로 보기 (영상·프로필 링크용)
+        상품번호 링크는 번호를 화면에 드러내지 않고 해당 상품만 보여줍니다. */
   const seed = new URLSearchParams(location.search).get('q') ||
                (location.hash ? decodeURIComponent(location.hash.slice(1)) : '');
   if (seed) {
-    input.value = seed;
+    const seedNum = /^p?\d{1,3}$/.test(norm(seed)) ? asNumber(seed) : null;
+    if (seedNum) {
+      pinnedNum = seedNum;
+    } else {
+      input.value = seed;
+    }
     apply();
     const first = shownCards()[0];
     if (first) setTimeout(function () { first.scrollIntoView({ behavior: 'smooth', block: 'center' }); }, 150);
