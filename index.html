@@ -3,19 +3,19 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-<title>민지로그 | MINJI LOG — 민지가 알려주는 실생활 꿀템 ✨</title>
-<meta name="description" content="민지가 알려주는 실생활 꿀템 ✨ 영상 속 상품번호(P001~P008)나 상품명으로 바로 검색해 보세요." />
-<meta name="theme-color" content="#12131A" />
+<title>민지로그 | MINJI LOG — 영상 속 모든 제품 정보 👇</title>
+<meta name="description" content="민지로그 영상 속 모든 제품 정보 👇 상품번호(P001~P008)나 상품명으로 검색해 쿠팡에서 바로 확인하세요." />
+<meta name="theme-color" content="#F6EEDB" />
 <meta name="robots" content="index,follow" />
 
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="민지로그 | MINJI LOG" />
-<meta property="og:title" content="민지로그 | MINJI LOG — 민지가 알려주는 실생활 꿀템 ✨" />
-<meta property="og:description" content="민지가 알려주는 실생활 꿀템 ✨ 영상 속 상품번호(P001~P008)나 상품명으로 바로 검색해 보세요." />
+<meta property="og:title" content="민지로그 | MINJI LOG — 영상 속 모든 제품 정보 👇" />
+<meta property="og:description" content="상품번호(P001~P008)나 상품명으로 검색해 쿠팡에서 바로 확인하세요." />
 <meta property="og:image" content="profile.png" />
 <meta name="twitter:card" content="summary_large_image" />
 
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%2312131A'/%3E%3Cpath d='M20 46V18h13a9 9 0 0 1 0 18h-6' fill='none' stroke='%23FF4D6D' stroke-width='7' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath d='M35 40l4 5 7-9' fill='none' stroke='%23FFD60A' stroke-width='5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E" />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%23F6EEDB'/%3E%3Cpath d='M20 46V18h13a9 9 0 0 1 0 18h-6' fill='none' stroke='%23FF4D7E' stroke-width='7' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath d='M35 40l4 5 7-9' fill='none' stroke='%23E09B1B' stroke-width='5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E" />
 <link rel="apple-touch-icon" href="apple-touch-icon.png" />
 <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css" />
@@ -43,20 +43,20 @@ var PICKLOG_LINKS = {
 
 <style>
   :root{
-    --bg:#12131A;
-    --bg-soft:#171925;
-    --card:#191B26;
-    --card-2:#1E2130;
-    --line:rgba(255,255,255,.075);
-    --line-strong:rgba(255,255,255,.14);
-    --coral:#FF4D6D;
-    --coral-soft:#FF7A59;
-    --yellow:#FFD60A;
-    --text:#F5F6FA;
-    --muted:#98A0B6;
-    --muted-2:#6E7690;
-    --radius:20px;
-    --shadow:0 18px 44px -22px rgba(0,0,0,.9);
+    --bg:#F6EEDB;
+    --bg-deep:#EFE3C9;
+    --bar:#FBE9A8;
+    --bar-ink:#8A6212;
+    --card:#FFFFFF;
+    --ink:#2B2721;
+    --ink-soft:#4C4539;
+    --muted:#8B8172;
+    --muted-2:#A99D87;
+    --line:#EDE1CA;
+    --accent:#E2612F;
+    --pink:#F0457A;
+    --shadow:0 8px 22px -16px rgba(120,95,50,.55), 0 1px 2px rgba(120,95,50,.07);
+    --radius:16px;
   }
 
   *,*::before,*::after{box-sizing:border-box;}
@@ -66,7 +66,7 @@ var PICKLOG_LINKS = {
   body{
     margin:0;
     background:var(--bg);
-    color:var(--text);
+    color:var(--ink);
     font-family:"Pretendard Variable",Pretendard,-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Segoe UI",Roboto,"Helvetica Neue","Malgun Gothic",sans-serif;
     font-size:16px;
     line-height:1.55;
@@ -78,229 +78,141 @@ var PICKLOG_LINKS = {
     min-height:100svh;
   }
 
-  /* ── 배경 글로우 ─────────────────────────────── */
-  .glow{
-    position:fixed;
-    inset:0;
-    z-index:0;
-    pointer-events:none;
-    overflow:hidden;
-  }
-  .glow::before,
-  .glow::after{
-    content:"";
-    position:absolute;
-    border-radius:50%;
-    filter:blur(60px);
-  }
-  .glow::before{
-    width:120vw;height:60vh;
-    top:-24vh;left:-30vw;
-    background:radial-gradient(circle,rgba(255,77,109,.42) 0%,rgba(255,77,109,0) 68%);
-  }
-  .glow::after{
-    width:90vw;height:45vh;
-    top:-8vh;right:-38vw;
-    background:radial-gradient(circle,rgba(255,214,10,.20) 0%,rgba(255,214,10,0) 70%);
+  /* ── 최상단 고정 고지 띠 ─────────────────────── */
+  .topbar{
+    position:sticky;
+    top:0;
+    z-index:40;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:6px;
+    padding:8px 12px calc(8px + env(safe-area-inset-top) * 0);
+    background:var(--bar);
+    border-bottom:1px solid rgba(180,140,40,.18);
+    color:var(--bar-ink);
+    font-size:clamp(9.8px,2.72vw,11.5px);
+    font-weight:700;
+    line-height:1.35;
+    letter-spacing:-0.02em;
+    text-align:center;
+    word-break:keep-all;
+    box-shadow:0 6px 14px -12px rgba(140,110,40,.6);
   }
 
+  /* ── 기본 레이아웃 ──────────────────────────── */
   .wrap{
-    position:relative;
-    z-index:1;
     width:100%;
     max-width:480px;
     margin:0 auto;
-    padding:calc(28px + env(safe-area-inset-top)) 20px calc(36px + env(safe-area-inset-bottom));
+    padding:22px 18px calc(34px + env(safe-area-inset-bottom));
   }
 
-  /* ── 헤더 ───────────────────────────────────── */
-  .hero{text-align:center;}
+  .sr-only{
+    position:absolute;width:1px;height:1px;
+    padding:0;margin:-1px;overflow:hidden;
+    clip:rect(0 0 0 0);white-space:nowrap;border:0;
+  }
+  .nw{white-space:nowrap;margin-left:.14em;}
+
+  /* ── 프로필 헤더 ────────────────────────────── */
+  .hero{text-align:center;padding-top:6px;}
 
   .avatar{
-    width:96px;height:96px;
-    margin:0 auto 16px;
+    width:92px;height:92px;
+    margin:0 auto 14px;
     border-radius:50%;
-    padding:2px;
-    background:linear-gradient(150deg,var(--coral),var(--coral-soft) 45%,var(--yellow));
-    box-shadow:0 14px 34px -12px rgba(255,77,109,.65);
-    position:relative;
+    padding:4px;
+    background:#fff;
+    box-shadow:0 12px 26px -16px rgba(110,85,40,.7);
   }
   .avatar img{
     display:block;
     width:100%;height:100%;
     border-radius:50%;
     object-fit:cover;
-    background:#0B0C11;
-    border:3px solid var(--bg);
-  }
-  .avatar::after{
-    content:"";
-    position:absolute;
-    right:2px;bottom:6px;
-    width:16px;height:16px;
-    border-radius:50%;
-    background:var(--yellow);
-    border:3px solid var(--bg);
+    background:var(--bg-deep);
   }
 
   .brand{
     margin:0;
-    font-size:26px;
+    font-size:24px;
     font-weight:800;
-    letter-spacing:-0.03em;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    gap:9px;
-    line-height:1.2;
+    letter-spacing:-0.04em;
+    line-height:1.25;
+    color:var(--ink);
   }
-  .brand .ko{
-    background:linear-gradient(120deg,#FFFFFF 20%,#FFE3E9 90%);
-    -webkit-background-clip:text;
-    background-clip:text;
-    color:transparent;
-  }
-  .brand .bar{
+  .brand small{
+    display:block;
+    margin-top:3px;
+    font-size:10.5px;
+    font-weight:800;
+    letter-spacing:.24em;
     color:var(--muted-2);
-    font-weight:300;
-    font-size:20px;
-  }
-  .brand .en{
-    font-size:15px;
-    font-weight:800;
-    letter-spacing:.18em;
-    color:var(--coral);
-    transform:translateY(1px);
   }
 
   .tagline{
-    margin:10px 0 0;
-    font-size:13.5px;
-    font-weight:500;
-    color:var(--muted);
-    letter-spacing:-0.005em;
+    margin:9px 0 0;
+    font-size:15px;
+    font-weight:700;
+    color:var(--ink-soft);
+    letter-spacing:-0.02em;
     word-break:keep-all;
   }
 
   .socials{
     display:flex;
     justify-content:center;
-    gap:8px;
-    margin-top:18px;
+    gap:7px;
+    margin-top:14px;
     flex-wrap:wrap;
   }
   .social{
     display:inline-flex;
     align-items:center;
     gap:6px;
-    padding:8px 13px 8px 11px;
+    padding:7px 12px 7px 10px;
     border-radius:999px;
-    background:rgba(255,255,255,.055);
-    border:1px solid var(--line);
-    color:#E9EBF3;
-    font-size:12.5px;
-    font-weight:600;
-    text-decoration:none;
-    transition:transform .18s ease,background .18s ease,border-color .18s ease;
-    -webkit-tap-highlight-color:transparent;
-  }
-  .social svg{width:15px;height:15px;flex:none;}
-  .social:hover,.social:focus-visible{
-    background:rgba(255,255,255,.1);
-    border-color:var(--line-strong);
-    transform:translateY(-1px);
-  }
-  .social.yt svg{fill:#FF3D3D;}
-  .social.ig svg{fill:#fff;}
-  .social.th svg{fill:#fff;}
-
-  /* ── 섹션 헤드 ───────────────────────────────── */
-  .head-row{
-    display:flex;
-    align-items:baseline;
-    justify-content:space-between;
-    gap:10px;
-    margin:34px 0 12px;
-    padding:0 2px;
-  }
-  .head-row h2{
-    margin:0;
-    font-size:16px;
-    font-weight:800;
-    letter-spacing:-0.02em;
-    display:flex;align-items:center;gap:7px;
-  }
-  .head-row h2::before{
-    content:"";
-    width:4px;height:15px;
-    border-radius:2px;
-    background:linear-gradient(180deg,var(--yellow),var(--coral));
-  }
-  .head-row .stamp{
-    font-size:11px;
-    font-weight:500;
-    color:var(--muted-2);
-    white-space:nowrap;
-  }
-
-  /* ── 탭 ─────────────────────────────────────── */
-  .tabs{
-    display:flex;
-    gap:6px;
-    padding:5px;
-    background:rgba(255,255,255,.045);
-    border:1px solid var(--line);
-    border-radius:16px;
-    margin-bottom:16px;
-  }
-  .tab{
-    flex:1 1 0;
-    appearance:none;
-    border:0;
-    background:transparent;
-    color:var(--muted);
-    font-family:inherit;
-    font-size:13px;
+    background:rgba(255,255,255,.72);
+    border:1px solid rgba(190,165,120,.32);
+    color:var(--ink-soft);
+    font-size:12px;
     font-weight:700;
-    letter-spacing:-0.02em;
-    padding:9px 4px;
-    border-radius:11px;
-    cursor:pointer;
-    transition:color .18s ease,background .18s ease,box-shadow .18s ease;
+    text-decoration:none;
+    transition:transform .16s ease,background .16s ease;
     -webkit-tap-highlight-color:transparent;
-    white-space:nowrap;
   }
-  .tab[aria-selected="true"]{
-    color:#1A1005;
-    background:linear-gradient(135deg,var(--yellow),#FFC400);
-    box-shadow:0 6px 16px -8px rgba(255,214,10,.9);
-  }
-  .tab:focus-visible{outline:2px solid var(--coral);outline-offset:2px;}
+  .social svg{width:14px;height:14px;flex:none;}
+  .social:hover,.social:focus-visible{background:#fff;transform:translateY(-1px);}
+  .social.yt svg{fill:#EF3B36;}
+  .social.ig svg{fill:#3B2A22;}
+  .social.th svg{fill:#3B2A22;}
 
   /* ── 검색 ───────────────────────────────────── */
-  .search{margin:0 0 12px;}
+  .search-block{margin-top:26px;}
+
   .search-field{
     display:flex;
     align-items:center;
-    gap:9px;
-    height:50px;
-    padding:0 12px 0 13px;
-    border-radius:15px;
-    background:rgba(255,255,255,.055);
-    border:1px solid var(--line-strong);
-    transition:border-color .18s ease,background .18s ease,box-shadow .18s ease;
+    gap:10px;
+    height:56px;
+    padding:0 16px;
+    border-radius:var(--radius);
+    background:#fff;
+    border:1px solid rgba(255,255,255,.9);
+    box-shadow:0 10px 24px -18px rgba(120,95,50,.75), 0 1px 2px rgba(120,95,50,.06);
+    transition:box-shadow .18s ease,border-color .18s ease;
   }
   .search-field:focus-within{
-    background:rgba(255,255,255,.085);
-    border-color:rgba(255,77,109,.62);
-    box-shadow:0 0 0 3px rgba(255,77,109,.15);
+    border-color:rgba(226,97,47,.35);
+    box-shadow:0 0 0 3px rgba(226,97,47,.1), 0 10px 24px -18px rgba(120,95,50,.75);
   }
   .search-field .ico{
-    width:17px;height:17px;flex:none;
-    fill:none;stroke:var(--muted);stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round;
+    width:20px;height:20px;flex:none;
+    fill:none;stroke:#B9AE9A;stroke-width:2.1;stroke-linecap:round;stroke-linejoin:round;
     transition:stroke .18s ease;
   }
-  .search-field:focus-within .ico{stroke:var(--coral);}
+  .search-field:focus-within .ico{stroke:var(--accent);}
   .search-field input{
     flex:1 1 auto;
     min-width:0;
@@ -311,13 +223,13 @@ var PICKLOG_LINKS = {
     background:transparent;
     border:0;
     outline:none;
-    color:var(--text);
+    color:var(--ink);
     font-family:inherit;
     font-size:16px;
     font-weight:600;
     letter-spacing:-0.02em;
   }
-  .search-field input::placeholder{color:var(--muted-2);font-weight:500;letter-spacing:-0.02em;}
+  .search-field input::placeholder{color:#B3A791;font-weight:500;}
   .search-field input::-webkit-search-cancel-button,
   .search-field input::-webkit-search-decoration{-webkit-appearance:none;display:none;}
   .search-field .clear{
@@ -326,331 +238,271 @@ var PICKLOG_LINKS = {
     display:inline-flex;align-items:center;justify-content:center;
     padding:0;
     border:0;border-radius:50%;
-    background:rgba(255,255,255,.15);
-    color:#E9EBF3;
-    font-family:inherit;font-size:13px;font-weight:800;line-height:1;
+    background:#F0E8D6;
+    color:#8B8172;
+    font-family:inherit;font-size:12px;font-weight:800;line-height:1;
     cursor:pointer;
     -webkit-tap-highlight-color:transparent;
   }
   .search-field .clear[hidden]{display:none;}
-  .quick{display:flex;flex-wrap:wrap;gap:5px;margin-top:9px;}
+
+  .guide{
+    margin:13px 0 0;
+    text-align:center;
+    font-size:13.5px;
+    font-weight:700;
+    letter-spacing:-0.02em;
+    color:#7C5F22;
+    word-break:keep-all;
+  }
+
+  .quick{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:5px;
+    margin-top:12px;
+  }
   .quick button{
     appearance:none;
     font-family:inherit;
-    font-size:11.5px;
+    font-size:11px;
     font-weight:700;
     letter-spacing:-0.01em;
-    padding:5px 9px;
+    padding:4px 8px;
     border-radius:8px;
-    color:#C6CBD9;
-    background:rgba(255,255,255,.05);
-    border:1px solid var(--line);
+    color:#8A7B5F;
+    background:rgba(255,255,255,.55);
+    border:1px solid rgba(198,176,133,.4);
     cursor:pointer;
     -webkit-tap-highlight-color:transparent;
     transition:background .15s ease,border-color .15s ease,color .15s ease;
   }
-  .quick button:hover,.quick button:focus-visible{background:rgba(255,255,255,.1);border-color:var(--line-strong);color:#fff;}
-  .quick button.num{color:#FFB3C1;background:rgba(255,77,109,.1);border-color:rgba(255,77,109,.3);letter-spacing:.03em;}
+  .quick button:hover,.quick button:focus-visible{background:#fff;border-color:rgba(198,176,133,.75);color:var(--ink);}
+  .quick button.num{color:#B4562C;background:rgba(255,255,255,.8);border-color:rgba(226,97,47,.28);letter-spacing:.03em;}
+
+  /* ── 탭 ─────────────────────────────────────── */
+  .tabs{
+    display:flex;
+    gap:4px;
+    padding:4px;
+    margin:22px 0 12px;
+    background:rgba(255,255,255,.6);
+    border:1px solid rgba(198,176,133,.32);
+    border-radius:999px;
+  }
+  .tab{
+    flex:1 1 0;
+    appearance:none;
+    border:0;
+    background:transparent;
+    color:var(--muted);
+    font-family:inherit;
+    font-size:12.5px;
+    font-weight:700;
+    letter-spacing:-0.02em;
+    padding:9px 2px;
+    border-radius:999px;
+    cursor:pointer;
+    transition:color .18s ease,background .18s ease,box-shadow .18s ease;
+    -webkit-tap-highlight-color:transparent;
+    white-space:nowrap;
+  }
+  .tab[aria-selected="true"]{
+    color:#FFF8E7;
+    background:#2B2721;
+    box-shadow:0 8px 16px -12px rgba(0,0,0,.8);
+  }
+  .tab:focus-visible{outline:2px solid var(--accent);outline-offset:2px;}
 
   .results{
     margin:0 0 10px;
-    padding:0 2px;
+    padding:0 4px;
     font-size:11.5px;
     font-weight:600;
     letter-spacing:-0.01em;
     color:var(--muted-2);
   }
-  .results strong{color:#E9EBF3;font-weight:800;}
+  .results strong{color:var(--ink-soft);font-weight:800;}
 
-  .empty{
-    display:none;
-    text-align:center;
-    padding:32px 20px 28px;
-    border-radius:var(--radius);
-    border:1px dashed rgba(255,255,255,.15);
-    background:rgba(255,255,255,.03);
-  }
-  .empty.show{display:block;}
-  .empty .em{display:block;font-size:28px;line-height:1;margin-bottom:10px;}
-  .empty p{margin:0;font-size:12.5px;line-height:1.65;color:var(--muted);word-break:keep-all;}
-  .empty p b{color:#fff;font-weight:800;}
-  .empty button{
-    margin-top:14px;
-    appearance:none;
-    font-family:inherit;
-    font-size:12.5px;font-weight:700;letter-spacing:-0.01em;
-    padding:9px 16px;
-    border-radius:11px;
-    color:#fff;
-    background:rgba(255,255,255,.08);
-    border:1px solid var(--line-strong);
-    cursor:pointer;
-  }
-
-  .sr-only{
-    position:absolute;width:1px;height:1px;
-    padding:0;margin:-1px;overflow:hidden;
-    clip:rect(0 0 0 0);white-space:nowrap;border:0;
-  }
-
-  /* ── 상품 카드 ───────────────────────────────── */
-  .cards{display:grid;gap:14px;}
+  /* ── 상품 카드 ──────────────────────────────── */
+  .cards{display:grid;gap:10px;}
 
   .card{
-    position:relative;
+    display:flex;
+    align-items:center;
+    gap:13px;
+    padding:12px;
     border-radius:var(--radius);
-    background:linear-gradient(170deg,var(--card-2),var(--card));
-    border:1px solid var(--line);
+    background:var(--card);
+    border:1px solid rgba(255,255,255,.9);
     box-shadow:var(--shadow);
-    overflow:hidden;
-    transition:transform .2s ease,border-color .2s ease;
-    animation:rise .5s cubic-bezier(.22,.8,.3,1) both;
-  }
-  .card:nth-child(2){animation-delay:.06s;}
-  .card:nth-child(3){animation-delay:.12s;}
-  .card:hover{border-color:rgba(255,77,109,.35);transform:translateY(-2px);}
-  .card.is-hidden{display:none;}
-
-  .card-link{
-    display:block;
     color:inherit;
     text-decoration:none;
     -webkit-tap-highlight-color:transparent;
+    transition:transform .16s ease,box-shadow .16s ease;
+    animation:rise .4s cubic-bezier(.22,.8,.3,1) both;
   }
-  .card-link:focus-visible{outline:2px solid var(--coral);outline-offset:-2px;border-radius:var(--radius);}
+  .card:nth-child(2){animation-delay:.04s;}
+  .card:nth-child(3){animation-delay:.08s;}
+  .card:nth-child(4){animation-delay:.12s;}
+  .card:hover{transform:translateY(-1px);box-shadow:0 14px 26px -18px rgba(120,95,50,.8), 0 1px 2px rgba(120,95,50,.08);}
+  .card:active{transform:scale(.995);}
+  .card:focus-visible{outline:2px solid var(--accent);outline-offset:2px;}
+  .card.is-hidden{display:none;}
 
   .thumb{
     position:relative;
-    aspect-ratio:16/9;
+    flex:0 0 84px;
+    width:84px;
+    aspect-ratio:1/1;
+    border-radius:12px;
     display:flex;
     align-items:center;
     justify-content:center;
     overflow:hidden;
     isolation:isolate;
   }
-  .thumb::before{
-    content:"";
-    position:absolute;inset:0;
-    background:
-      radial-gradient(70% 90% at 20% 15%,rgba(255,255,255,.16),transparent 62%),
-      radial-gradient(50% 70% at 88% 100%,rgba(255,255,255,.09),transparent 70%);
-    z-index:1;
-  }
   .thumb::after{
     content:"";
     position:absolute;inset:0;
-    background:repeating-linear-gradient(115deg,rgba(255,255,255,.05) 0 2px,transparent 2px 9px);
-    opacity:.5;
+    background:radial-gradient(120% 100% at 30% 12%,rgba(255,255,255,.75),transparent 62%);
     z-index:1;
   }
   .thumb .glyph{
-    font-size:70px;
+    font-size:36px;
     line-height:1;
-    filter:drop-shadow(0 14px 22px rgba(0,0,0,.5));
-    transform:translateY(-2px);
+    filter:drop-shadow(0 6px 10px rgba(120,95,50,.22));
     z-index:2;
   }
-  .thumb .halo{
-    position:absolute;
-    width:150px;height:150px;
-    border-radius:50%;
-    background:radial-gradient(circle,rgba(255,255,255,.17),rgba(255,255,255,0) 68%);
-    z-index:1;
-  }
-  .thumb .idx{
-    position:absolute;
-    right:14px;bottom:-12px;
-    font-size:74px;
-    font-weight:900;
-    letter-spacing:-0.06em;
-    color:rgba(255,255,255,.16);
-    z-index:1;
-    line-height:1;
-  }
-  .thumb .pnum{
-    position:absolute;
-    left:12px;top:12px;
-    z-index:3;
-    display:inline-flex;
-    align-items:center;
-    padding:4px 9px;
-    border-radius:8px;
-    background:linear-gradient(135deg,var(--coral),#FF6A5B);
-    color:#fff;
-    font-size:12px;
-    font-weight:900;
-    letter-spacing:.05em;
-    font-variant-numeric:tabular-nums;
-    box-shadow:0 10px 20px -12px rgba(255,77,109,.95);
-  }
-  .thumb .state{
-    position:absolute;
-    right:12px;top:12px;
-    z-index:3;
-    display:inline-flex;
-    align-items:center;
+  .thumb.t-living{background:linear-gradient(140deg,#FFE9D7,#FFD8BF);}
+  .thumb.t-living2{background:linear-gradient(140deg,#FFE7DA,#FFD2C0);}
+  .thumb.t-tech{background:linear-gradient(140deg,#E4EEFF,#CFE1FF);}
+  .thumb.t-bath{background:linear-gradient(140deg,#E1F2ED,#CBEAE0);}
+  .thumb.t-mist{background:linear-gradient(140deg,#E7F1FB,#D2E7F9);}
+  .thumb.t-kitchen{background:linear-gradient(140deg,#FFF0DA,#FFE2BA);}
+
+  .info{
+    flex:1 1 auto;
+    min-width:0;
+    display:flex;
+    flex-direction:column;
     gap:3px;
-    padding:4px 8px;
-    border-radius:8px;
-    background:rgba(10,11,16,.62);
-    backdrop-filter:blur(6px);
-    -webkit-backdrop-filter:blur(6px);
-    border:1px solid rgba(255,255,255,.16);
-    font-size:11px;
+  }
+
+  .meta{
+    display:flex;
+    align-items:center;
+    gap:6px;
+    margin-bottom:1px;
+    min-width:0;
+  }
+  .pnum{
+    flex:none;
+    padding:1px 6px;
+    border-radius:6px;
+    background:#2B2721;
+    color:#FFF8E7;
+    font-size:10.5px;
+    font-weight:800;
+    letter-spacing:.04em;
+    font-variant-numeric:tabular-nums;
+    line-height:1.5;
+  }
+  .badge{
+    flex:none;
+    padding:1px 6px;
+    border-radius:6px;
+    font-size:10.5px;
     font-weight:800;
     letter-spacing:-0.01em;
-    color:#fff;
+    line-height:1.5;
   }
-  .thumb .state.hot{
-    color:#FFD9DF;
-    background:rgba(255,77,109,.22);
-    border-color:rgba(255,77,109,.46);
-  }
-  .thumb .state.new{
-    color:#C7F6E3;
-    background:rgba(40,196,140,.2);
-    border-color:rgba(60,220,165,.42);
-  }
-  .thumb .rev{
-    position:absolute;
-    left:12px;bottom:11px;
-    z-index:3;
-    font-size:11px;
-    font-weight:700;
-    letter-spacing:-0.01em;
-    color:rgba(255,255,255,.85);
-    text-shadow:0 2px 8px rgba(0,0,0,.65);
-  }
-
-  .thumb.c-living{background:linear-gradient(135deg,#2A1A24,#3B1C2A 55%,#1C1220);}
-  .thumb.c-living2{background:linear-gradient(135deg,#2B1B1B,#43221C 55%,#1D1319);}
-  .thumb.c-tech{background:linear-gradient(135deg,#131E33,#1B2C4A 55%,#111A2B);}
-  .thumb.c-bath{background:linear-gradient(135deg,#1D2A2B,#20404A 55%,#131B22);}
-  .thumb.c-mist{background:linear-gradient(135deg,#17222F,#1F3B5C 55%,#121A28);}
-
-  .nw{white-space:nowrap;}
-
-  .body{padding:15px 16px 16px;}
-
-  .chips{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:8px;}
-  .chip{
+  .badge.hot{background:#FFE7EC;color:#D9285C;}
+  .badge.new{background:#E6F6ED;color:#1F8A62;}
+  .rev{
+    margin-left:auto;
     font-size:10.5px;
-    font-weight:700;
-    letter-spacing:-0.01em;
-    padding:3px 7px;
-    border-radius:6px;
-    background:rgba(255,255,255,.07);
-    color:#C6CBD9;
-    border:1px solid rgba(255,255,255,.06);
-  }
-  .chip.accent{
-    background:rgba(255,77,109,.13);
-    border-color:rgba(255,77,109,.3);
-    color:#FF9FB0;
-  }
-  .chip.gold{
-    background:rgba(255,214,10,.1);
-    border-color:rgba(255,214,10,.26);
-    color:var(--yellow);
+    font-weight:600;
+    color:var(--muted-2);
+    white-space:nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
   }
 
   .card h3{
-    margin:0 0 6px;
-    font-size:15.5px;
-    font-weight:800;
-    line-height:1.4;
-    letter-spacing:-0.025em;
-    word-break:keep-all;
-  }
-  .desc{
     margin:0;
-    font-size:12.5px;
-    line-height:1.5;
-    color:var(--muted);
+    font-size:14.5px;
+    font-weight:800;
+    line-height:1.38;
+    letter-spacing:-0.03em;
+    color:var(--ink);
     word-break:keep-all;
+    display:-webkit-box;
+    -webkit-line-clamp:2;
+    -webkit-box-orient:vertical;
+    overflow:hidden;
   }
 
-  .price-row{
+  .price{
     display:flex;
     align-items:baseline;
+    gap:6px;
     flex-wrap:wrap;
-    gap:7px;
-    margin-top:11px;
-  }
-  .price-now{
-    font-size:19px;
-    font-weight:900;
-    letter-spacing:-0.03em;
-    color:#fff;
-  }
-  .price-now em{
-    font-style:normal;
     font-size:12px;
-    font-weight:700;
-    color:var(--muted);
-    margin-left:1px;
+    line-height:1.4;
   }
-  .price-was{
-    font-size:12px;
-    font-weight:600;
-    color:var(--muted-2);
-    text-decoration:line-through;
-  }
-  .price-off{
-    font-size:11px;
-    font-weight:800;
-    color:var(--coral);
-    background:rgba(255,77,109,.12);
-    border-radius:5px;
-    padding:1px 5px;
-  }
-  .price-coupon{
-    font-size:11px;
-    font-weight:700;
-    color:#1A1005;
-    background:linear-gradient(135deg,var(--yellow),#FFC400);
-    border-radius:5px;
-    padding:2px 6px;
-    letter-spacing:-0.01em;
-  }
-  .price-note{
-    font-size:11.5px;
-    font-weight:600;
-    color:var(--muted-2);
-    letter-spacing:-0.01em;
-  }
+  .price b{font-size:14px;font-weight:900;letter-spacing:-0.03em;color:var(--ink);}
+  .price s{color:var(--muted-2);font-weight:600;font-size:11.5px;}
+  .price i{font-style:normal;font-weight:800;color:var(--accent);font-size:11px;}
+  .price em{font-style:normal;font-weight:700;color:var(--muted);font-size:11.5px;}
 
-  .cta{
-    margin-top:13px;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    gap:7px;
-    padding:12px 14px;
-    border-radius:13px;
-    background:linear-gradient(135deg,var(--coral),#FF6A5B);
-    color:#fff;
-    font-size:13.5px;
-    font-weight:800;
+  .sub{
+    font-size:12.5px;
+    font-weight:700;
     letter-spacing:-0.02em;
-    box-shadow:0 12px 26px -14px rgba(255,77,109,.95);
-    transition:filter .18s ease,transform .18s ease;
+    color:#6F6450;
+    word-break:keep-all;
+    line-height:1.4;
   }
-  .card-link:hover .cta{filter:brightness(1.06);}
-  .card-link:active .cta{transform:scale(.99);}
-  .cta svg{width:15px;height:15px;fill:none;stroke:currentColor;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round;}
-  .cta .soon{font-size:11px;font-weight:700;opacity:.75;}
+  .sub b{color:var(--accent);font-weight:800;}
 
-  /* ── 안내 스트립 ─────────────────────────────── */
+  /* ── 빈 결과 ───────────────────────────────── */
+  .empty{
+    display:none;
+    text-align:center;
+    padding:28px 20px 24px;
+    border-radius:var(--radius);
+    border:1px dashed rgba(190,165,120,.55);
+    background:rgba(255,255,255,.5);
+  }
+  .empty.show{display:block;}
+  .empty .em{display:block;font-size:26px;line-height:1;margin-bottom:10px;}
+  .empty p{margin:0;font-size:12.5px;line-height:1.65;color:var(--muted);word-break:keep-all;}
+  .empty p b{color:var(--ink-soft);font-weight:800;}
+  .empty button{
+    margin-top:14px;
+    appearance:none;
+    font-family:inherit;
+    font-size:12.5px;font-weight:800;letter-spacing:-0.01em;
+    padding:9px 16px;
+    border-radius:11px;
+    color:#FFF8E7;
+    background:#2B2721;
+    border:1px solid #2B2721;
+    cursor:pointer;
+  }
+
+  /* ── 안내 스트립 ────────────────────────────── */
   .notice{
     display:flex;
     align-items:flex-start;
-    gap:9px;
-    margin-top:18px;
-    padding:12px 14px;
+    gap:8px;
+    margin-top:16px;
+    padding:11px 13px;
     border-radius:14px;
-    background:rgba(255,255,255,.04);
-    border:1px dashed rgba(255,255,255,.13);
+    background:rgba(255,255,255,.5);
+    border:1px dashed rgba(190,165,120,.5);
     font-size:11.5px;
     line-height:1.55;
     color:var(--muted);
@@ -660,57 +512,55 @@ var PICKLOG_LINKS = {
 
   /* ── 푸터 ───────────────────────────────────── */
   .foot{
-    margin-top:30px;
-    padding-top:20px;
-    border-top:1px solid var(--line);
+    margin-top:26px;
+    padding-top:18px;
+    border-top:1px solid rgba(190,165,120,.35);
     text-align:center;
   }
   .disclosure{
+    margin:0;
     font-size:11.5px;
     line-height:1.65;
-    color:#B9BFD0;
-    background:rgba(255,255,255,.035);
-    border:1px solid var(--line);
+    color:#6F6450;
+    background:rgba(255,255,255,.55);
+    border:1px solid rgba(190,165,120,.35);
     border-radius:12px;
     padding:11px 13px;
     word-break:keep-all;
   }
   .fine{
-    margin:12px 0 0;
+    margin:11px 0 0;
     font-size:11px;
     line-height:1.6;
     color:var(--muted-2);
     word-break:keep-all;
   }
-  .foot .socials{margin-top:16px;}
+  .foot .socials{margin-top:14px;}
   .copy{
-    margin:18px 0 0;
+    margin:16px 0 0;
     font-size:10.5px;
     letter-spacing:.08em;
-    color:#4E5568;
+    color:#B7A98F;
     text-transform:uppercase;
-    font-weight:600;
+    font-weight:700;
   }
 
   /* ── 토스트 ─────────────────────────────────── */
   .toast{
     position:fixed;
     left:50%;
-    bottom:calc(26px + env(safe-area-inset-bottom));
-    transform:translate(-50%,18px);
+    bottom:calc(24px + env(safe-area-inset-bottom));
+    transform:translate(-50%,16px);
     z-index:50;
-    max-width:calc(100% - 40px);
+    max-width:calc(100% - 36px);
     padding:12px 18px;
     border-radius:999px;
-    background:rgba(23,25,37,.94);
-    border:1px solid rgba(255,214,10,.35);
-    color:#FFF8D6;
+    background:rgba(43,39,33,.95);
+    color:#FFF8E7;
     font-size:12.5px;
     font-weight:700;
     letter-spacing:-0.01em;
-    box-shadow:0 16px 36px -14px rgba(0,0,0,.9);
-    backdrop-filter:blur(10px);
-    -webkit-backdrop-filter:blur(10px);
+    box-shadow:0 16px 32px -16px rgba(0,0,0,.55);
     opacity:0;
     pointer-events:none;
     transition:opacity .22s ease,transform .22s ease;
@@ -719,7 +569,7 @@ var PICKLOG_LINKS = {
   .toast.show{opacity:1;transform:translate(-50%,0);}
 
   @keyframes rise{
-    from{opacity:0;transform:translateY(12px);}
+    from{opacity:0;transform:translateY(10px);}
     to{opacity:1;transform:translateY(0);}
   }
 
@@ -728,30 +578,30 @@ var PICKLOG_LINKS = {
   }
 
   @media (min-width:520px){
-    .wrap{padding-top:44px;}
-    .brand{font-size:30px;}
-    .thumb .glyph{font-size:76px;}
+    .wrap{padding-top:30px;}
+    .brand{font-size:26px;}
+    .thumb{flex-basis:88px;width:88px;}
+    .card h3{font-size:15px;}
   }
 </style>
 </head>
 <body>
 
-<div class="glow" aria-hidden="true"></div>
+<div class="topbar" role="note">쿠팡 파트너스 활동의 일환으로 이에 따른 소정의 수수료를 받습니다.</div>
 
 <main class="wrap">
 
   <header class="hero">
     <div class="avatar">
-      <img src="profile.png" alt="민지로그 프로필" width="96" height="96" />
+      <img src="profile.png" alt="민지로그 프로필" width="92" height="92" />
     </div>
 
     <h1 class="brand">
-      <span class="ko">민지로그</span>
-      <span class="bar" aria-hidden="true">|</span>
-      <span class="en">MINJI LOG</span>
+      민지로그
+      <small>MINJI LOG</small>
     </h1>
 
-    <p class="tagline">민지가 알려주는 실생활 꿀템 ✨</p>
+    <p class="tagline">영상 속 모든 제품 정보 👇</p>
 
     <nav class="socials" aria-label="민지로그 공식 채널">
       <a class="social yt" href="https://www.youtube.com/@picklog_official" target="_blank" rel="noopener noreferrer" aria-label="민지로그 유튜브">
@@ -769,18 +619,16 @@ var PICKLOG_LINKS = {
     </nav>
   </header>
 
-  <div class="head-row">
-    <h2>오늘의 픽</h2>
-    <span class="stamp">정보 확인 2026.11.27</span>
-  </div>
-
-  <div class="search">
+  <section class="search-block">
     <label class="sr-only" for="q">상품번호 또는 상품명 검색</label>
     <div class="search-field">
       <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.6-3.6"/></svg>
-      <input id="q" type="search" inputmode="search" enterkeyhint="search" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="상품번호(P001) 또는 상품명 검색" aria-describedby="results" />
+      <input id="q" type="search" inputmode="search" enterkeyhint="search" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="검색어를 입력해주세요." aria-describedby="results" />
       <button type="button" class="clear" id="qClear" aria-label="검색어 지우기" hidden>✕</button>
     </div>
+
+    <p class="guide">👆 검색창에 제품을 적어 검색해서 찾아요</p>
+
     <div class="quick" role="group" aria-label="빠른 검색">
       <button type="button" class="num" data-q="P001">P001</button>
       <button type="button" class="num" data-q="P002">P002</button>
@@ -795,268 +643,137 @@ var PICKLOG_LINKS = {
       <button type="button" data-q="무드등">무드등</button>
       <button type="button" data-q="충전기">충전기</button>
     </div>
-  </div>
+  </section>
 
   <div class="tabs" role="tablist" aria-label="상품 카테고리">
     <button class="tab" role="tab" id="tab-all" aria-selected="true" aria-controls="cards" data-filter="all">전체</button>
     <button class="tab" role="tab" id="tab-living" aria-selected="false" aria-controls="cards" data-filter="living">리빙·생활</button>
     <button class="tab" role="tab" id="tab-tech" aria-selected="false" aria-controls="cards" data-filter="tech">테크·데스크</button>
+    <button class="tab" role="tab" id="tab-kitchen" aria-selected="false" aria-controls="cards" data-filter="kitchen">주방·계절</button>
   </div>
 
-  <p class="results" id="results" aria-live="polite">전체 <strong>5</strong>개 상품</p>
+  <p class="results" id="results" aria-live="polite">전체 <strong>8</strong>개 상품</p>
 
   <div class="cards" id="cards">
 
     <!-- ① 클래파 미니 무선청소기 -->
-    <article class="card" data-cat="living" data-num="P001" data-keywords="클래파 청소기 핸디청소기 미니청소기 무선청소기 bvc bvc-h10 가성비">
-      <a class="card-link" href="#" data-link="P001">
-        <div class="thumb c-living">
+    <a class="card" href="#" data-link="P001" data-cat="living" data-num="P001" data-keywords="클래파 청소기 핸디청소기 미니청소기 무선청소기 bvc bvc-h10 가성비">
+      <span class="thumb t-living" aria-hidden="true"><span class="glyph">🧹</span></span>
+      <span class="info">
+        <span class="meta">
           <span class="pnum">P001</span>
-          <span class="state hot" aria-label="인기 상품">🔥 인기</span>
-          <span class="halo" aria-hidden="true"></span>
-          <span class="glyph" aria-hidden="true">🧹</span>
+          <span class="badge hot">🔥 인기</span>
           <span class="rev">리뷰 28,615</span>
-          <span class="idx" aria-hidden="true">01</span>
-        </div>
-        <div class="body">
-          <div class="chips">
-            <span class="chip accent">리빙·생활</span>
-            <span class="chip gold">쿠팡 어워즈 리뷰베스트</span>
-          </div>
-          <h3>클래파 DC모터 다용도 미니 핸디형 무선청소기 <span class="nw">BVC-H10</span></h3>
-          <p class="desc">부스러기 하나에 큰 청소기 꺼내기 귀찮을 때 · 470g 한 손에 쏙, 핸디+스틱 2in1</p>
-          <div class="price-row">
-            <span class="price-now">37,000<em>원</em></span>
-            <span class="price-was">59,900원</span>
-            <span class="price-off">38%</span>
-            <span class="price-coupon">쿠폰가 35,150원</span>
-          </div>
-          <div class="cta">쿠팡에서 확인하기
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg>
-          </div>
-        </div>
-      </a>
-    </article>
+        </span>
+        <h3>클래파 DC모터 다용도 미니 핸디형 무선청소기 <span class="nw">BVC-H10</span></h3>
+        <span class="price"><b>37,000원</b> <s>59,900원</s> <i>38%</i></span>
+        <span class="sub">👉 클릭하면 <b>[청소기]</b> 바로 보기</span>
+      </span>
+    </a>
 
     <!-- ② 자석 부착 모션 센서 무드등 -->
-    <article class="card" data-cat="living" data-num="P002" data-keywords="무드등 센서등 모션센서 자석부착 usb-c 충전식 현관등 인테리어">
-      <a class="card-link" href="#" data-link="P002">
-        <div class="thumb c-living2">
+    <a class="card" href="#" data-link="P002" data-cat="living" data-num="P002" data-keywords="무드등 센서등 모션센서 자석부착 usb-c 충전식 현관등 인테리어">
+      <span class="thumb t-living2" aria-hidden="true"><span class="glyph">💡</span></span>
+      <span class="info">
+        <span class="meta">
           <span class="pnum">P002</span>
-          <span class="state new" aria-label="새로 추가된 상품">✨ NEW</span>
-          <span class="halo" aria-hidden="true"></span>
-          <span class="glyph" aria-hidden="true">💡</span>
-          <span class="idx" aria-hidden="true">02</span>
-        </div>
-        <div class="body">
-          <div class="chips">
-            <span class="chip accent">리빙·생활</span>
-            <span class="chip">타공 없이 자석 부착</span>
-          </div>
-          <h3>타공 없는 자석 부착 USB-C 모션 센서 무드등</h3>
-          <p class="desc">현관·옷장·침대 밑, 다가가면 자동 점등 · USB-C 충전으로 선 없이 깔끔하게</p>
-          <div class="price-row">
-            <span class="price-now">1만 원대</span>
-            <span class="price-note">쿠팡에서 실시간 가격 확인</span>
-          </div>
-          <div class="cta">쿠팡에서 확인하기
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg>
-          </div>
-        </div>
-      </a>
-    </article>
+          <span class="badge new">✨ NEW</span>
+        </span>
+        <h3>타공 없는 자석 부착 USB-C 모션 센서 무드등</h3>
+        <span class="price"><em>가격은 쿠팡에서 확인</em></span>
+        <span class="sub">👉 클릭하면 <b>[무드등]</b> 바로 보기</span>
+      </span>
+    </a>
 
     <!-- ③ 신지모루 65W GaN 3포트 접지 충전기 -->
-    <article class="card" data-cat="tech" data-num="P003" data-keywords="신지모루 gan 나이트 나이트충전기 충전기 고속충전기 멀티충전기 c타입 usb usb-c pd 접지 3포트 노트북충전기">
-      <a class="card-link" href="#" data-link="P003">
-        <div class="thumb c-tech">
+    <a class="card" href="#" data-link="P003" data-cat="tech" data-num="P003" data-keywords="신지모루 gan 나이트 나이트충전기 충전기 고속충전기 멀티충전기 c타입 usb usb-c pd 접지 3포트 노트북충전기">
+      <span class="thumb t-tech" aria-hidden="true"><span class="glyph">🔌</span></span>
+      <span class="info">
+        <span class="meta">
           <span class="pnum">P003</span>
-          <span class="state hot" aria-label="인기 상품">🔥 인기</span>
-          <span class="halo" aria-hidden="true"></span>
-          <span class="glyph" aria-hidden="true">🔌</span>
+          <span class="badge hot">🔥 인기</span>
           <span class="rev">리뷰 10,286</span>
-          <span class="idx" aria-hidden="true">03</span>
-        </div>
-        <div class="body">
-          <div class="chips">
-            <span class="chip accent">테크·데스크</span>
-            <span class="chip">65W · 3포트</span>
-            <span class="chip gold">접지형</span>
-          </div>
-          <h3>신지모루 O PD 65W GaN 3포트 초고속 접지 충전기</h3>
-          <p class="desc">노트북·폰·이어폰 동시 충전 · C타입 2 + A타입 1, 손바닥만 한 크기로 출장·카페 책상 위 필수템</p>
-          <div class="price-row">
-            <span class="price-now">22,900<em>원</em></span>
-            <span class="price-was">54,900원</span>
-            <span class="price-off">58%</span>
-            <span class="price-note">로켓배송</span>
-          </div>
-          <div class="cta">쿠팡에서 확인하기
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg>
-          </div>
-        </div>
-      </a>
-    </article>
+        </span>
+        <h3>신지모루 O PD 65W GaN 3포트 초고속 접지 충전기</h3>
+        <span class="price"><b>22,900원</b> <s>54,900원</s> <i>58%</i></span>
+        <span class="sub">👉 클릭하면 <b>[충전기]</b> 바로 보기</span>
+      </span>
+    </a>
 
     <!-- ④ 르메이어 비접촉 자동 센서 거품 디스펜서 -->
-    <article class="card" data-cat="living" data-num="P004" data-keywords="르메이어 비접촉 자동 센서 디스펜서 거품 비누 핸드워시 손세정기 주방 욕실 무타공 벽걸이 lmea lmea-sd01">
-      <a class="card-link" href="#" data-link="P004">
-        <div class="thumb c-bath">
+    <a class="card" href="#" data-link="P004" data-cat="living" data-num="P004" data-keywords="르메이어 비접촉 자동 센서 디스펜서 거품 비누 핸드워시 손세정기 주방 욕실 무타공 벽걸이 lmea lmea-sd01">
+      <span class="thumb t-bath" aria-hidden="true"><span class="glyph">🧼</span></span>
+      <span class="info">
+        <span class="meta">
           <span class="pnum">P004</span>
-          <span class="state new" aria-label="새로 추가된 상품">✨ NEW</span>
-          <span class="halo" aria-hidden="true"></span>
-          <span class="glyph" aria-hidden="true">🧼</span>
+          <span class="badge new">✨ NEW</span>
           <span class="rev">리뷰 1,385</span>
-          <span class="idx" aria-hidden="true">04</span>
-        </div>
-        <div class="body">
-          <div class="chips">
-            <span class="chip accent">리빙·생활</span>
-            <span class="chip">비접촉 센서</span>
-            <span class="chip gold">무타공</span>
-          </div>
-          <h3>르메이어 비접촉 자동 센서 거품 디스펜서</h3>
-          <p class="desc">손만 갖다 대면 거품이 톡 · 400ml 대용량, 벽에 구멍 뚫지 않는 무타공 스티커 패널</p>
-          <div class="price-row">
-            <span class="price-now">22,560<em>원</em></span>
-            <span class="price-was">34,800원</span>
-            <span class="price-off">35%</span>
-            <span class="price-note">무료배송</span>
-          </div>
-          <div class="cta">쿠팡에서 확인하기
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg>
-          </div>
-        </div>
-      </a>
-    </article>
+        </span>
+        <h3>르메이어 비접촉 자동 센서 거품 디스펜서</h3>
+        <span class="price"><b>22,560원</b> <s>34,800원</s> <i>35%</i></span>
+        <span class="sub">👉 클릭하면 <b>[디스펜서]</b> 바로 보기</span>
+      </span>
+    </a>
 
     <!-- ⑤ 홈플래닛 미니 무선가습기 400ml -->
-    <article class="card" data-cat="living" data-num="P005" data-keywords="가습기 무선가습기 미니가습기 초음파가습기 홈플래닛 usb가습기 사무실가습기 침실가습기 겨울가습기 400ml hf501s">
-      <a class="card-link" href="#" data-link="P005">
-        <div class="thumb c-mist">
+    <a class="card" href="#" data-link="P005" data-cat="living" data-num="P005" data-keywords="가습기 무선가습기 미니가습기 초음파가습기 홈플래닛 usb가습기 사무실가습기 침실가습기 겨울가습기 400ml hf501s">
+      <span class="thumb t-mist" aria-hidden="true"><span class="glyph">💧</span></span>
+      <span class="info">
+        <span class="meta">
           <span class="pnum">P005</span>
-          <span class="state new" aria-label="새로 추가된 상품">✨ NEW</span>
-          <span class="halo" aria-hidden="true"></span>
-          <span class="glyph" aria-hidden="true">💧</span>
+          <span class="badge new">✨ NEW</span>
           <span class="rev">리뷰 2,592</span>
-          <span class="idx" aria-hidden="true">05</span>
-        </div>
-        <div class="body">
-          <div class="chips">
-            <span class="chip accent">리빙·생활</span>
-            <span class="chip">400ml · 무선</span>
-            <span class="chip gold">로켓배송</span>
-          </div>
-          <h3>홈플래닛 미니 무선가습기 400ml <span class="nw">HF501S</span></h3>
-          <p class="desc">겨울 난방으로 마른 방, 콘센트 없이 책상·침대 옆에 두는 무선 가습기 · 한 번 충전에 최대 4.5시간</p>
-          <div class="price-row">
-            <span class="price-now">13,990<em>원</em></span>
-            <span class="price-was">34,990원</span>
-            <span class="price-off">60%</span>
-            <span class="price-note">무료배송</span>
-          </div>
-          <div class="cta">쿠팡에서 확인하기
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg>
-          </div>
-        </div>
-      </a>
-    </article>
+        </span>
+        <h3>홈플래닛 미니 무선가습기 400ml <span class="nw">HF501S</span></h3>
+        <span class="price"><b>13,990원</b> <s>34,990원</s> <i>60%</i></span>
+        <span class="sub">👉 클릭하면 <b>[가습기]</b> 바로 보기</span>
+      </span>
+    </a>
 
     <!-- ⑥ 쿠쿠 에어프라이어 5.5L -->
-    <article class="card" data-cat="kitchen" data-num="P006" data-keywords="에어프라이어 대용량에어프라이어 쿠쿠 쿠쿠에어프라이어 5.5리터 caf-g0610tb 튀김기 주방가전 겨울야식">
-      <a class="card-link" href="#" data-link="P006">
-        <div class="thumb c-living2">
+    <a class="card" href="#" data-link="P006" data-cat="kitchen" data-num="P006" data-keywords="에어프라이어 대용량에어프라이어 쿠쿠 쿠쿠에어프라이어 5.5리터 caf-g0610tb 튀김기 주방가전 겨울야식">
+      <span class="thumb t-kitchen" aria-hidden="true"><span class="glyph">🍟</span></span>
+      <span class="info">
+        <span class="meta">
           <span class="pnum">P006</span>
-          <span class="state new" aria-label="새로 추가된 상품">✨ NEW</span>
-          <span class="halo" aria-hidden="true"></span>
-          <span class="glyph" aria-hidden="true">🍟</span>
+          <span class="badge new">✨ NEW</span>
           <span class="rev">리뷰 2,649</span>
-          <span class="idx" aria-hidden="true">06</span>
-        </div>
-        <div class="body">
-          <div class="chips">
-            <span class="chip accent">주방가전</span>
-            <span class="chip">5.5L · 200℃</span>
-            <span class="chip gold">로켓배송</span>
-          </div>
-          <h3>쿠쿠 에어프라이어 5.5L <span class="nw">CAF-G0610TB</span></h3>
-          <p class="desc">기름 없이 바삭하게, 5.5L라 3~4인분 한 번에 · 바스켓 통째로 빼서 세척 · 평점 5.0</p>
-          <div class="price-row">
-            <span class="price-now">79,850<em>원</em></span>
-            <span class="price-was">84,860원</span>
-            <span class="price-off">5%</span>
-            <span class="price-note">쿠폰가</span>
-          </div>
-          <div class="cta">쿠팡에서 확인하기
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg>
-          </div>
-        </div>
-      </a>
-    </article>
+        </span>
+        <h3>쿠쿠 에어프라이어 5.5L <span class="nw">CAF-G0610TB</span></h3>
+        <span class="price"><b>79,850원</b> <s>84,860원</s> <i>5%</i></span>
+        <span class="sub">👉 클릭하면 <b>[에어프라이어]</b> 바로 보기</span>
+      </span>
+    </a>
 
     <!-- ⑦ 프롬비 히터팬 전기 온풍기 -->
-    <article class="card" data-cat="living" data-num="P007" data-keywords="온풍기 히터팬 전기온풍기 프롬비 프롬비온풍기 fc189r 사무실온풍기 발난로 소형온풍기 겨울가전">
-      <a class="card-link" href="#" data-link="P007">
-        <div class="thumb c-living">
+    <a class="card" href="#" data-link="P007" data-cat="living" data-num="P007" data-keywords="온풍기 히터팬 전기온풍기 프롬비 프롬비온풍기 fc189r 사무실온풍기 발난로 소형온풍기 겨울가전">
+      <span class="thumb t-living2" aria-hidden="true"><span class="glyph">🔥</span></span>
+      <span class="info">
+        <span class="meta">
           <span class="pnum">P007</span>
-          <span class="state new" aria-label="새로 추가된 상품">✨ NEW</span>
-          <span class="halo" aria-hidden="true"></span>
-          <span class="glyph" aria-hidden="true">🔥</span>
+          <span class="badge new">✨ NEW</span>
           <span class="rev">리뷰 2,953</span>
-          <span class="idx" aria-hidden="true">07</span>
-        </div>
-        <div class="body">
-          <div class="chips">
-            <span class="chip accent">계절가전</span>
-            <span class="chip">1,800W</span>
-            <span class="chip gold">로켓배송</span>
-          </div>
-          <h3>프롬비 히터팬 전기 온풍기 <span class="nw">FC189R</span></h3>
-          <p class="desc">사무실 책상 밑 발 시린 자리, 헤드가 좌우로 돌고 리모컨으로 켜고 꺼요 · 평점 4.5</p>
-          <div class="price-row">
-            <span class="price-now">64,800<em>원</em></span>
-            <span class="price-was">79,800원</span>
-            <span class="price-off">18%</span>
-            <span class="price-note">쿠폰가</span>
-          </div>
-          <div class="cta">쿠팡에서 확인하기
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg>
-          </div>
-        </div>
-      </a>
-    </article>
+        </span>
+        <h3>프롬비 히터팬 전기 온풍기 <span class="nw">FC189R</span></h3>
+        <span class="price"><b>64,800원</b> <s>79,800원</s> <i>18%</i></span>
+        <span class="sub">👉 클릭하면 <b>[온풍기]</b> 바로 보기</span>
+      </span>
+    </a>
 
     <!-- ⑧ 필립스 초경량 4종 헤드 마사지건 -->
-    <article class="card" data-cat="tech" data-num="P008" data-keywords="마사지건 안마기 필립스 필립스마사지건 ppm7317 무선마사지건 어깨마사지기 승모근 헬스 소파안마기">
-      <a class="card-link" href="#" data-link="P008">
-        <div class="thumb c-tech">
+    <a class="card" href="#" data-link="P008" data-cat="tech" data-num="P008" data-keywords="마사지건 안마기 필립스 필립스마사지건 ppm7317 무선마사지건 어깨마사지기 승모근 헬스 소파안마기">
+      <span class="thumb t-tech" aria-hidden="true"><span class="glyph">💪</span></span>
+      <span class="info">
+        <span class="meta">
           <span class="pnum">P008</span>
-          <span class="state new" aria-label="새로 추가된 상품">✨ NEW</span>
-          <span class="halo" aria-hidden="true"></span>
-          <span class="glyph" aria-hidden="true">💪</span>
+          <span class="badge new">✨ NEW</span>
           <span class="rev">리뷰 216</span>
-          <span class="idx" aria-hidden="true">08</span>
-        </div>
-        <div class="body">
-          <div class="chips">
-            <span class="chip accent">테크·건강</span>
-            <span class="chip">4종 헤드</span>
-            <span class="chip gold">로켓배송</span>
-          </div>
-          <h3>필립스 초경량 4종 헤드 마사지건 <span class="nw">PPM7317</span></h3>
-          <p class="desc">하루 종일 앉아 뭉친 어깨·허리, 4종 헤드로 부위별로 · 충전식 무선이라 소파에서도 · 평점 5.0</p>
-          <div class="price-row">
-            <span class="price-now">88,010<em>원</em></span>
-            <span class="price-was">149,000원</span>
-            <span class="price-off">40%</span>
-            <span class="price-note">쿠폰가</span>
-          </div>
-          <div class="cta">쿠팡에서 확인하기
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg>
-          </div>
-        </div>
-      </a>
-    </article>
+        </span>
+        <h3>필립스 초경량 4종 헤드 마사지건 <span class="nw">PPM7317</span></h3>
+        <span class="price"><b>88,010원</b> <s>149,000원</s> <i>40%</i></span>
+        <span class="sub">👉 클릭하면 <b>[마사지건]</b> 바로 보기</span>
+      </span>
+    </a>
 
   </div>
 
@@ -1120,15 +837,14 @@ var PICKLOG_LINKS = {
     const url = (PICKLOG_LINKS[key] || '').trim();
 
     if (!url || PLACEHOLDER.test(url)) {
-      // 아직 링크가 없으면 이동하지 않고 안내
       a.setAttribute('href', '#');
       a.setAttribute('aria-disabled', 'true');
       a.addEventListener('click', function (e) {
         e.preventDefault();
         showToast(TOAST_MSG);
       });
-      const cta = a.querySelector('.cta');
-      if (cta) cta.insertAdjacentHTML('beforeend', '<span class="soon">준비 중</span>');
+      const sub = a.querySelector('.sub');
+      if (sub) sub.insertAdjacentHTML('beforeend', ' <span class="soon">· 준비 중</span>');
     } else {
       a.setAttribute('href', url);
       a.setAttribute('target', '_blank');
@@ -1193,9 +909,14 @@ var PICKLOG_LINKS = {
     cards.forEach(function (card) {
       let match;
       if (q) {
-        match = card.getAttribute('data-num') === num ||
-                card._hay.indexOf(q) !== -1 ||
-                (num !== null && card._hay.indexOf(norm(num)) !== -1);
+        if (num !== null && /^p?\d+$/.test(q)) {
+          // 상품번호만 입력했을 때는 그 상품 하나만 ("6" → P006)
+          match = card.getAttribute('data-num') === num;
+        } else {
+          match = card.getAttribute('data-num') === num ||
+                  card._hay.indexOf(q) !== -1 ||
+                  (num !== null && card._hay.indexOf(norm(num)) !== -1);
+        }
       } else {
         match = activeCat === 'all' || card.getAttribute('data-cat') === activeCat;
       }
