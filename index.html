@@ -25,19 +25,14 @@
    민지로그(MINJI LOG) 상품 링크 설정  (여기 한 줄만 바꾸면 됩니다)
    ──────────────────────────────────────────────────────────────────
    쿠팡 파트너스에서 상품별 단축 링크를 만든 뒤, 아래 따옴표 안의
-   주소만 교체하세요. 키(P001~P008)는 영상에 나오는 상품번호와
-   같습니다. 예) P003: 'https://link.coupang.com/a/abc123'
+   주소만 교체하세요. 키(R001~)는 영상에 나오는 상품번호와
+   같습니다. 예) R001: 'https://link.coupang.com/a/abc123'
    아직 바꾸지 않은 상품을 누르면 안내 토스트가 뜹니다.
    ══════════════════════════════════════════════════════════════════ */
 var PICKLOG_LINKS = {
-  P001: 'https://link.coupang.com/a/iZ5LYo1hDM', // 클래파 DC모터 다용도 미니 핸디형 무선청소기 BVC-H10
-  P002: 'https://link.coupang.com/a/iZ5V5HxwHY', // 투데이리빙 360도 무선 센서등 무타공 모션 동작 감지 조명 R99495Y
-  P003: 'https://link.coupang.com/a/iZ5TG8V856', // 신지모루 O PD 65W GaN 3포트 초고속 접지 충전기
-  P004: 'https://link.coupang.com/a/i0zqGVV2DQ', // 르메이어 비접촉 자동 센서 거품 디스펜서 LMEA-SD01
-  P005: 'https://link.coupang.com/a/i0QYBNMIiO', // 홈플래닛 미니 무선가습기 400ml HF501S
-  P006: 'https://link.coupang.com/a/i2A4hRoPim', // 쿠쿠 에어프라이어 5.5L CAF-G0610TB
-  P007: 'https://link.coupang.com/a/i2A23gqA6m', // 프롬비 히터팬 전기 온풍기 FC189R
-  P008: 'https://link.coupang.com/a/i2BatU5PP2'  // 필립스 초경량 4종 헤드 마사지건 PPM7317
+  /* 2026-11-28 리뉴얼: 이전 P001~P008 상품은 모두 내렸습니다.
+     새 상품(R001~)의 쿠팡 파트너스 단축 링크를 여기에 추가하세요.
+     예) R001: 'https://link.coupang.com/a/abc123' */
 };
 </script>
 
@@ -602,6 +597,33 @@ var PICKLOG_LINKS = {
     .thumb{flex-basis:88px;width:88px;}
     .card h3{font-size:15px;}
   }
+
+  /* ── 준비 중(빈 상태) ───────────────────────── */
+  .coming{
+    padding:34px 20px 32px;
+    text-align:center;
+    border-radius:var(--radius);
+    background:var(--card);
+    border:1px solid rgba(255,255,255,.9);
+    box-shadow:var(--shadow);
+  }
+  .coming-em{display:block;font-size:30px;line-height:1;margin-bottom:14px;}
+  .coming h2{
+    margin:0 0 10px;
+    font-size:17px;
+    font-weight:800;
+    letter-spacing:-0.03em;
+    color:var(--ink);
+    word-break:keep-all;
+  }
+  .coming p{
+    margin:0;
+    font-size:12.5px;
+    line-height:1.75;
+    color:var(--muted);
+    word-break:keep-all;
+  }
+  .coming .coming-sub{margin-top:12px;font-size:12px;color:var(--muted-2);}
 </style>
 </head>
 <body>
@@ -640,7 +662,7 @@ var PICKLOG_LINKS = {
     </nav>
   </header>
 
-  <section class="search-block">
+  <section class="search-block" hidden style="display:none">
     <label class="sr-only" for="q">제품명 검색</label>
     <div class="search-field">
       <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.6-3.6"/></svg>
@@ -661,131 +683,28 @@ var PICKLOG_LINKS = {
     </div>
   </section>
 
-  <div class="tabs" role="tablist" aria-label="상품 카테고리">
+  <div class="tabs" role="tablist" aria-label="상품 카테고리" hidden style="display:none">
     <button class="tab" role="tab" id="tab-all" aria-selected="true" aria-controls="cards" data-filter="all">전체</button>
     <button class="tab" role="tab" id="tab-living" aria-selected="false" aria-controls="cards" data-filter="living">리빙·생활</button>
     <button class="tab" role="tab" id="tab-tech" aria-selected="false" aria-controls="cards" data-filter="tech">테크·데스크</button>
     <button class="tab" role="tab" id="tab-kitchen" aria-selected="false" aria-controls="cards" data-filter="kitchen">주방·계절</button>
   </div>
 
-  <p class="results" id="results" aria-live="polite">전체 <strong>8</strong>개 상품</p>
+  <p class="results" id="results" aria-live="polite" hidden style="display:none">전체 <strong>0</strong>개 상품</p>
 
   <div class="cards" id="cards">
 
-    <!-- ① 클래파 미니 무선청소기 -->
-    <a class="card" href="#" data-link="P001" data-cat="living" data-num="P001" data-keywords="클래파 청소기 핸디청소기 미니청소기 무선청소기 bvc bvc-h10 가성비">
-      <span class="thumb t-living has-photo" aria-hidden="true"><img src="thumbs/p001.jpg" alt="" width="84" height="84" decoding="async"></span>
-      <span class="info">
-        <span class="meta">
-          <span class="badge hot">🔥 인기</span>
-          <span class="rev">리뷰 28,615</span>
-        </span>
-        <h3>클래파 DC모터 다용도 미니 핸디형 무선청소기 <span class="nw">BVC-H10</span></h3>
-        <span class="price"><b>37,000원</b> <s>59,900원</s> <i>38%</i></span>
-        <span class="sub">👉 클릭하면 <b>[청소기]</b> 바로 보기</span>
-      </span>
-    </a>
-
-    <!-- ② 자석 부착 모션 센서 무드등 -->
-    <a class="card" href="#" data-link="P002" data-cat="living" data-num="P002" data-keywords="무드등 센서등 모션센서 자석부착 usb-c 충전식 현관등 인테리어">
-      <span class="thumb t-living2 has-photo" aria-hidden="true"><img src="thumbs/p002.jpg" alt="" width="84" height="84" decoding="async"></span>
-      <span class="info">
-        <span class="meta">
-          <span class="badge new">✨ NEW</span>
-        </span>
-        <h3>타공 없는 자석 부착 USB-C 모션 센서 무드등</h3>
-        <span class="price"><em>가격은 쿠팡에서 확인</em></span>
-        <span class="sub">👉 클릭하면 <b>[무드등]</b> 바로 보기</span>
-      </span>
-    </a>
-
-    <!-- ③ 신지모루 65W GaN 3포트 접지 충전기 -->
-    <a class="card" href="#" data-link="P003" data-cat="tech" data-num="P003" data-keywords="신지모루 gan 나이트 나이트충전기 충전기 고속충전기 멀티충전기 c타입 usb usb-c pd 접지 3포트 노트북충전기">
-      <span class="thumb t-tech has-photo" aria-hidden="true"><img src="thumbs/p003.jpg" alt="" width="84" height="84" decoding="async"></span>
-      <span class="info">
-        <span class="meta">
-          <span class="badge hot">🔥 인기</span>
-          <span class="rev">리뷰 10,286</span>
-        </span>
-        <h3>신지모루 O PD 65W GaN 3포트 초고속 접지 충전기</h3>
-        <span class="price"><b>22,900원</b> <s>54,900원</s> <i>58%</i></span>
-        <span class="sub">👉 클릭하면 <b>[충전기]</b> 바로 보기</span>
-      </span>
-    </a>
-
-    <!-- ④ 르메이어 비접촉 자동 센서 거품 디스펜서 -->
-    <a class="card" href="#" data-link="P004" data-cat="living" data-num="P004" data-keywords="르메이어 비접촉 자동 센서 디스펜서 거품 비누 핸드워시 손세정기 주방 욕실 무타공 벽걸이 lmea lmea-sd01">
-      <span class="thumb t-bath has-photo" aria-hidden="true"><img src="thumbs/p004.jpg" alt="" width="84" height="84" decoding="async"></span>
-      <span class="info">
-        <span class="meta">
-          <span class="badge new">✨ NEW</span>
-          <span class="rev">리뷰 1,385</span>
-        </span>
-        <h3>르메이어 비접촉 자동 센서 거품 디스펜서</h3>
-        <span class="price"><b>22,560원</b> <s>34,800원</s> <i>35%</i></span>
-        <span class="sub">👉 클릭하면 <b>[디스펜서]</b> 바로 보기</span>
-      </span>
-    </a>
-
-    <!-- ⑤ 홈플래닛 미니 무선가습기 400ml -->
-    <a class="card" href="#" data-link="P005" data-cat="living" data-num="P005" data-keywords="가습기 무선가습기 미니가습기 초음파가습기 홈플래닛 usb가습기 사무실가습기 침실가습기 겨울가습기 400ml hf501s">
-      <span class="thumb t-mist has-photo" aria-hidden="true"><img src="thumbs/p005.jpg" alt="" width="84" height="84" decoding="async"></span>
-      <span class="info">
-        <span class="meta">
-          <span class="badge new">✨ NEW</span>
-          <span class="rev">리뷰 2,592</span>
-        </span>
-        <h3>홈플래닛 미니 무선가습기 400ml <span class="nw">HF501S</span></h3>
-        <span class="price"><b>13,990원</b> <s>34,990원</s> <i>60%</i></span>
-        <span class="sub">👉 클릭하면 <b>[가습기]</b> 바로 보기</span>
-      </span>
-    </a>
-
-    <!-- ⑥ 쿠쿠 에어프라이어 5.5L -->
-    <a class="card" href="#" data-link="P006" data-cat="kitchen" data-num="P006" data-keywords="에어프라이어 대용량에어프라이어 쿠쿠 쿠쿠에어프라이어 5.5리터 caf-g0610tb 튀김기 주방가전 겨울야식">
-      <span class="thumb t-kitchen has-photo" aria-hidden="true"><img src="thumbs/p006.jpg" alt="" width="84" height="84" decoding="async"></span>
-      <span class="info">
-        <span class="meta">
-          <span class="badge new">✨ NEW</span>
-          <span class="rev">리뷰 2,649</span>
-        </span>
-        <h3>쿠쿠 에어프라이어 5.5L <span class="nw">CAF-G0610TB</span></h3>
-        <span class="price"><b>79,850원</b> <s>84,860원</s> <i>5%</i></span>
-        <span class="sub">👉 클릭하면 <b>[에어프라이어]</b> 바로 보기</span>
-      </span>
-    </a>
-
-    <!-- ⑦ 프롬비 히터팬 전기 온풍기 -->
-    <a class="card" href="#" data-link="P007" data-cat="living" data-num="P007" data-keywords="온풍기 히터팬 전기온풍기 프롬비 프롬비온풍기 fc189r 사무실온풍기 발난로 소형온풍기 겨울가전">
-      <span class="thumb t-living2 has-photo" aria-hidden="true"><img src="thumbs/p007.jpg" alt="" width="84" height="84" decoding="async"></span>
-      <span class="info">
-        <span class="meta">
-          <span class="badge new">✨ NEW</span>
-          <span class="rev">리뷰 2,953</span>
-        </span>
-        <h3>프롬비 히터팬 전기 온풍기 <span class="nw">FC189R</span></h3>
-        <span class="price"><b>64,800원</b> <s>79,800원</s> <i>18%</i></span>
-        <span class="sub">👉 클릭하면 <b>[온풍기]</b> 바로 보기</span>
-      </span>
-    </a>
-
-    <!-- ⑧ 필립스 초경량 4종 헤드 마사지건 -->
-    <a class="card" href="#" data-link="P008" data-cat="tech" data-num="P008" data-keywords="마사지건 안마기 필립스 필립스마사지건 ppm7317 무선마사지건 어깨마사지기 승모근 헬스 소파안마기">
-      <span class="thumb t-tech has-photo" aria-hidden="true"><img src="thumbs/p008.jpg" alt="" width="84" height="84" decoding="async"></span>
-      <span class="info">
-        <span class="meta">
-          <span class="badge new">✨ NEW</span>
-          <span class="rev">리뷰 216</span>
-        </span>
-        <h3>필립스 초경량 4종 헤드 마사지건 <span class="nw">PPM7317</span></h3>
-        <span class="price"><b>88,010원</b> <s>149,000원</s> <i>40%</i></span>
-        <span class="sub">👉 클릭하면 <b>[마사지건]</b> 바로 보기</span>
-      </span>
-    </a>
+    <!-- 2026-11-28 리뉴얼 준비: 이전 P001~P008 상품 카드는 전부 내렸습니다 -->
+    <div class="coming" role="status">
+      <span class="coming-em" aria-hidden="true">✨</span>
+      <h2>새로운 꿀템을 준비 중이에요</h2>
+      <p>더 신박하고 실사용 만족도 높은 아이템만 골라서<br>첫 편이 올라오는 대로 이곳에 하나씩 정리해 둘게요.</p>
+      <p class="coming-sub">그동안 궁금한 건 유튜브·인스타 DM으로 편하게 물어봐 주세요!</p>
+    </div>
 
   </div>
 
-  <div class="empty" id="empty">
+  <div class="empty" id="empty" style="display:none">
     <span class="em" aria-hidden="true">🔍</span>
     <p><b id="emptyQ"></b>에 맞는 상품을 못 찾았어요.<br>제품명 일부만 적어서 다시 검색해 보세요.</p>
     <button type="button" id="resetBtn">전체 상품 보기</button>
@@ -793,7 +712,7 @@ var PICKLOG_LINKS = {
 
   <div class="notice">
     <span class="i" aria-hidden="true">💡</span>
-    <span>표시된 가격은 <strong>2026.11.27 기준</strong>이라 금방 바뀔 수 있어요. 결제 전에 쿠팡 상품 페이지에서 최종 가격과 재고를 꼭 확인해 주세요.</span>
+    <span>새 상품이 올라오면 표시 가격은 <strong>그 시점 기준</strong>이에요. 금방 바뀔 수 있으니 결제 전에 쿠팡 상품 페이지에서 최종 가격과 재고를 꼭 확인해 주세요.</span>
   </div>
 
   <footer class="foot">
